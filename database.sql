@@ -29,6 +29,7 @@ USE `hf34b555f3_xintel`;
 -- Table structure for table `activations`
 --
 
+DROP TABLE IF EXISTS `activations`;
 CREATE TABLE `activations` (
   `id` bigint(20) UNSIGNED NOT NULL,
   `user_id` bigint(20) UNSIGNED NOT NULL,
@@ -52,6 +53,7 @@ INSERT INTO `activations` (`id`, `user_id`, `code`, `completed`, `completed_at`,
 -- Table structure for table `admin_notifications`
 --
 
+DROP TABLE IF EXISTS `admin_notifications`;
 CREATE TABLE `admin_notifications` (
   `id` bigint(20) UNSIGNED NOT NULL,
   `title` varchar(255) NOT NULL,
@@ -70,6 +72,7 @@ CREATE TABLE `admin_notifications` (
 -- Table structure for table `audit_histories`
 --
 
+DROP TABLE IF EXISTS `audit_histories`;
 CREATE TABLE `audit_histories` (
   `id` bigint(20) UNSIGNED NOT NULL,
   `user_id` bigint(20) UNSIGNED NOT NULL,
@@ -260,6 +263,7 @@ INSERT INTO `audit_histories` (`id`, `user_id`, `module`, `request`, `action`, `
 -- Table structure for table `blocks`
 --
 
+DROP TABLE IF EXISTS `blocks`;
 CREATE TABLE `blocks` (
   `id` bigint(20) UNSIGNED NOT NULL,
   `name` varchar(255) NOT NULL,
@@ -278,6 +282,7 @@ CREATE TABLE `blocks` (
 -- Table structure for table `blocks_translations`
 --
 
+DROP TABLE IF EXISTS `blocks_translations`;
 CREATE TABLE `blocks_translations` (
   `lang_code` varchar(20) NOT NULL,
   `blocks_id` bigint(20) UNSIGNED NOT NULL,
@@ -292,6 +297,7 @@ CREATE TABLE `blocks_translations` (
 -- Table structure for table `categories`
 --
 
+DROP TABLE IF EXISTS `categories`;
 CREATE TABLE `categories` (
   `id` bigint(20) UNSIGNED NOT NULL,
   `name` varchar(120) NOT NULL,
@@ -328,6 +334,7 @@ INSERT INTO `categories` (`id`, `name`, `parent_id`, `description`, `status`, `a
 -- Table structure for table `categories_translations`
 --
 
+DROP TABLE IF EXISTS `categories_translations`;
 CREATE TABLE `categories_translations` (
   `lang_code` varchar(20) NOT NULL,
   `categories_id` bigint(20) UNSIGNED NOT NULL,
@@ -341,6 +348,7 @@ CREATE TABLE `categories_translations` (
 -- Table structure for table `contacts`
 --
 
+DROP TABLE IF EXISTS `contacts`;
 CREATE TABLE `contacts` (
   `id` bigint(20) UNSIGNED NOT NULL,
   `name` varchar(60) NOT NULL,
@@ -360,6 +368,7 @@ CREATE TABLE `contacts` (
 -- Table structure for table `contact_replies`
 --
 
+DROP TABLE IF EXISTS `contact_replies`;
 CREATE TABLE `contact_replies` (
   `id` bigint(20) UNSIGNED NOT NULL,
   `message` longtext NOT NULL,
@@ -374,6 +383,7 @@ CREATE TABLE `contact_replies` (
 -- Table structure for table `custom_fields`
 --
 
+DROP TABLE IF EXISTS `custom_fields`;
 CREATE TABLE `custom_fields` (
   `id` bigint(20) UNSIGNED NOT NULL,
   `use_for` varchar(255) NOT NULL,
@@ -390,6 +400,7 @@ CREATE TABLE `custom_fields` (
 -- Table structure for table `custom_fields_translations`
 --
 
+DROP TABLE IF EXISTS `custom_fields_translations`;
 CREATE TABLE `custom_fields_translations` (
   `lang_code` varchar(20) NOT NULL,
   `custom_fields_id` bigint(20) UNSIGNED NOT NULL,
@@ -402,6 +413,7 @@ CREATE TABLE `custom_fields_translations` (
 -- Table structure for table `dashboard_widgets`
 --
 
+DROP TABLE IF EXISTS `dashboard_widgets`;
 CREATE TABLE `dashboard_widgets` (
   `id` bigint(20) UNSIGNED NOT NULL,
   `name` varchar(120) NOT NULL,
@@ -432,6 +444,7 @@ INSERT INTO `dashboard_widgets` (`id`, `name`, `created_at`, `updated_at`) VALUE
 -- Table structure for table `dashboard_widget_settings`
 --
 
+DROP TABLE IF EXISTS `dashboard_widget_settings`;
 CREATE TABLE `dashboard_widget_settings` (
   `id` bigint(20) UNSIGNED NOT NULL,
   `settings` text DEFAULT NULL,
@@ -449,6 +462,7 @@ CREATE TABLE `dashboard_widget_settings` (
 -- Table structure for table `failed_jobs`
 --
 
+DROP TABLE IF EXISTS `failed_jobs`;
 CREATE TABLE `failed_jobs` (
   `id` bigint(20) UNSIGNED NOT NULL,
   `uuid` varchar(255) NOT NULL,
@@ -465,6 +479,7 @@ CREATE TABLE `failed_jobs` (
 -- Table structure for table `field_groups`
 --
 
+DROP TABLE IF EXISTS `field_groups`;
 CREATE TABLE `field_groups` (
   `id` bigint(20) UNSIGNED NOT NULL,
   `title` varchar(255) NOT NULL,
@@ -483,6 +498,7 @@ CREATE TABLE `field_groups` (
 -- Table structure for table `field_items`
 --
 
+DROP TABLE IF EXISTS `field_items`;
 CREATE TABLE `field_items` (
   `id` bigint(20) UNSIGNED NOT NULL,
   `field_group_id` bigint(20) UNSIGNED NOT NULL,
@@ -501,6 +517,7 @@ CREATE TABLE `field_items` (
 -- Table structure for table `galleries`
 --
 
+DROP TABLE IF EXISTS `galleries`;
 CREATE TABLE `galleries` (
   `id` bigint(20) UNSIGNED NOT NULL,
   `name` varchar(120) NOT NULL,
@@ -520,6 +537,7 @@ CREATE TABLE `galleries` (
 -- Table structure for table `galleries_translations`
 --
 
+DROP TABLE IF EXISTS `galleries_translations`;
 CREATE TABLE `galleries_translations` (
   `lang_code` varchar(20) NOT NULL,
   `galleries_id` bigint(20) UNSIGNED NOT NULL,
@@ -533,6 +551,7 @@ CREATE TABLE `galleries_translations` (
 -- Table structure for table `gallery_meta`
 --
 
+DROP TABLE IF EXISTS `gallery_meta`;
 CREATE TABLE `gallery_meta` (
   `id` bigint(20) UNSIGNED NOT NULL,
   `images` text DEFAULT NULL,
@@ -548,6 +567,7 @@ CREATE TABLE `gallery_meta` (
 -- Table structure for table `gallery_meta_translations`
 --
 
+DROP TABLE IF EXISTS `gallery_meta_translations`;
 CREATE TABLE `gallery_meta_translations` (
   `lang_code` varchar(20) NOT NULL,
   `gallery_meta_id` bigint(20) UNSIGNED NOT NULL,
@@ -560,6 +580,7 @@ CREATE TABLE `gallery_meta_translations` (
 -- Table structure for table `jobs`
 --
 
+DROP TABLE IF EXISTS `jobs`;
 CREATE TABLE `jobs` (
   `id` bigint(20) UNSIGNED NOT NULL,
   `queue` varchar(255) NOT NULL,
@@ -576,6 +597,7 @@ CREATE TABLE `jobs` (
 -- Table structure for table `languages`
 --
 
+DROP TABLE IF EXISTS `languages`;
 CREATE TABLE `languages` (
   `lang_id` bigint(20) UNSIGNED NOT NULL,
   `lang_name` varchar(120) NOT NULL,
@@ -601,6 +623,7 @@ INSERT INTO `languages` (`lang_id`, `lang_name`, `lang_locale`, `lang_code`, `la
 -- Table structure for table `language_meta`
 --
 
+DROP TABLE IF EXISTS `language_meta`;
 CREATE TABLE `language_meta` (
   `lang_meta_id` bigint(20) UNSIGNED NOT NULL,
   `lang_meta_code` varchar(20) DEFAULT NULL,
@@ -636,6 +659,7 @@ INSERT INTO `language_meta` (`lang_meta_id`, `lang_meta_code`, `lang_meta_origin
 -- Table structure for table `media_files`
 --
 
+DROP TABLE IF EXISTS `media_files`;
 CREATE TABLE `media_files` (
   `id` bigint(20) UNSIGNED NOT NULL,
   `user_id` bigint(20) UNSIGNED NOT NULL,
@@ -678,6 +702,7 @@ INSERT INTO `media_files` (`id`, `user_id`, `name`, `alt`, `folder_id`, `mime_ty
 -- Table structure for table `media_folders`
 --
 
+DROP TABLE IF EXISTS `media_folders`;
 CREATE TABLE `media_folders` (
   `id` bigint(20) UNSIGNED NOT NULL,
   `user_id` bigint(20) UNSIGNED NOT NULL,
@@ -696,6 +721,7 @@ CREATE TABLE `media_folders` (
 -- Table structure for table `media_settings`
 --
 
+DROP TABLE IF EXISTS `media_settings`;
 CREATE TABLE `media_settings` (
   `id` bigint(20) UNSIGNED NOT NULL,
   `key` varchar(120) NOT NULL,
@@ -712,6 +738,7 @@ CREATE TABLE `media_settings` (
 -- Table structure for table `members`
 --
 
+DROP TABLE IF EXISTS `members`;
 CREATE TABLE `members` (
   `id` bigint(20) UNSIGNED NOT NULL,
   `first_name` varchar(120) NOT NULL,
@@ -737,6 +764,7 @@ CREATE TABLE `members` (
 -- Table structure for table `member_activity_logs`
 --
 
+DROP TABLE IF EXISTS `member_activity_logs`;
 CREATE TABLE `member_activity_logs` (
   `id` bigint(20) UNSIGNED NOT NULL,
   `action` varchar(120) NOT NULL,
@@ -755,6 +783,7 @@ CREATE TABLE `member_activity_logs` (
 -- Table structure for table `member_password_resets`
 --
 
+DROP TABLE IF EXISTS `member_password_resets`;
 CREATE TABLE `member_password_resets` (
   `email` varchar(255) NOT NULL,
   `token` varchar(255) NOT NULL,
@@ -767,6 +796,7 @@ CREATE TABLE `member_password_resets` (
 -- Table structure for table `menus`
 --
 
+DROP TABLE IF EXISTS `menus`;
 CREATE TABLE `menus` (
   `id` bigint(20) UNSIGNED NOT NULL,
   `name` varchar(120) NOT NULL,
@@ -790,6 +820,7 @@ INSERT INTO `menus` (`id`, `name`, `slug`, `status`, `created_at`, `updated_at`)
 -- Table structure for table `menu_locations`
 --
 
+DROP TABLE IF EXISTS `menu_locations`;
 CREATE TABLE `menu_locations` (
   `id` bigint(20) UNSIGNED NOT NULL,
   `menu_id` bigint(20) UNSIGNED NOT NULL,
@@ -812,6 +843,7 @@ INSERT INTO `menu_locations` (`id`, `menu_id`, `location`, `created_at`, `update
 -- Table structure for table `menu_nodes`
 --
 
+DROP TABLE IF EXISTS `menu_nodes`;
 CREATE TABLE `menu_nodes` (
   `id` bigint(20) UNSIGNED NOT NULL,
   `menu_id` bigint(20) UNSIGNED NOT NULL,
@@ -853,6 +885,7 @@ INSERT INTO `menu_nodes` (`id`, `menu_id`, `parent_id`, `reference_id`, `referen
 -- Table structure for table `meta_boxes`
 --
 
+DROP TABLE IF EXISTS `meta_boxes`;
 CREATE TABLE `meta_boxes` (
   `id` bigint(20) UNSIGNED NOT NULL,
   `meta_key` varchar(255) NOT NULL,
@@ -882,6 +915,7 @@ INSERT INTO `meta_boxes` (`id`, `meta_key`, `meta_value`, `reference_id`, `refer
 -- Table structure for table `migrations`
 --
 
+DROP TABLE IF EXISTS `migrations`;
 CREATE TABLE `migrations` (
   `id` int(10) UNSIGNED NOT NULL,
   `migration` varchar(255) NOT NULL,
@@ -959,6 +993,7 @@ INSERT INTO `migrations` (`id`, `migration`, `batch`) VALUES
 -- Table structure for table `pages`
 --
 
+DROP TABLE IF EXISTS `pages`;
 CREATE TABLE `pages` (
   `id` bigint(20) UNSIGNED NOT NULL,
   `name` varchar(120) NOT NULL,
@@ -989,6 +1024,7 @@ INSERT INTO `pages` (`id`, `name`, `content`, `user_id`, `image`, `template`, `d
 -- Table structure for table `pages_translations`
 --
 
+DROP TABLE IF EXISTS `pages_translations`;
 CREATE TABLE `pages_translations` (
   `lang_code` varchar(20) NOT NULL,
   `pages_id` bigint(20) UNSIGNED NOT NULL,
@@ -1003,6 +1039,7 @@ CREATE TABLE `pages_translations` (
 -- Table structure for table `password_reset_tokens`
 --
 
+DROP TABLE IF EXISTS `password_reset_tokens`;
 CREATE TABLE `password_reset_tokens` (
   `email` varchar(255) NOT NULL,
   `token` varchar(255) NOT NULL,
@@ -1015,6 +1052,7 @@ CREATE TABLE `password_reset_tokens` (
 -- Table structure for table `personal_access_tokens`
 --
 
+DROP TABLE IF EXISTS `personal_access_tokens`;
 CREATE TABLE `personal_access_tokens` (
   `id` bigint(20) UNSIGNED NOT NULL,
   `tokenable_type` varchar(255) NOT NULL,
@@ -1034,6 +1072,7 @@ CREATE TABLE `personal_access_tokens` (
 -- Table structure for table `posts`
 --
 
+DROP TABLE IF EXISTS `posts`;
 CREATE TABLE `posts` (
   `id` bigint(20) UNSIGNED NOT NULL,
   `name` varchar(255) NOT NULL,
@@ -1065,6 +1104,7 @@ INSERT INTO `posts` (`id`, `name`, `description`, `content`, `status`, `author_i
 -- Table structure for table `posts_translations`
 --
 
+DROP TABLE IF EXISTS `posts_translations`;
 CREATE TABLE `posts_translations` (
   `lang_code` varchar(20) NOT NULL,
   `posts_id` bigint(20) UNSIGNED NOT NULL,
@@ -1088,6 +1128,7 @@ INSERT INTO `posts_translations` (`lang_code`, `posts_id`, `name`, `description`
 -- Table structure for table `post_categories`
 --
 
+DROP TABLE IF EXISTS `post_categories`;
 CREATE TABLE `post_categories` (
   `category_id` bigint(20) UNSIGNED NOT NULL,
   `post_id` bigint(20) UNSIGNED NOT NULL
@@ -1108,6 +1149,7 @@ INSERT INTO `post_categories` (`category_id`, `post_id`) VALUES
 -- Table structure for table `post_tags`
 --
 
+DROP TABLE IF EXISTS `post_tags`;
 CREATE TABLE `post_tags` (
   `tag_id` bigint(20) UNSIGNED NOT NULL,
   `post_id` bigint(20) UNSIGNED NOT NULL
@@ -1129,6 +1171,7 @@ INSERT INTO `post_tags` (`tag_id`, `post_id`) VALUES
 -- Table structure for table `request_logs`
 --
 
+DROP TABLE IF EXISTS `request_logs`;
 CREATE TABLE `request_logs` (
   `id` bigint(20) UNSIGNED NOT NULL,
   `status_code` int(11) DEFAULT NULL,
@@ -1214,6 +1257,7 @@ INSERT INTO `request_logs` (`id`, `status_code`, `url`, `count`, `user_id`, `ref
 -- Table structure for table `revisions`
 --
 
+DROP TABLE IF EXISTS `revisions`;
 CREATE TABLE `revisions` (
   `id` bigint(20) UNSIGNED NOT NULL,
   `revisionable_type` varchar(255) NOT NULL,
@@ -1242,6 +1286,7 @@ INSERT INTO `revisions` (`id`, `revisionable_type`, `revisionable_id`, `user_id`
 -- Table structure for table `roles`
 --
 
+DROP TABLE IF EXISTS `roles`;
 CREATE TABLE `roles` (
   `id` bigint(20) UNSIGNED NOT NULL,
   `slug` varchar(120) NOT NULL,
@@ -1268,6 +1313,7 @@ INSERT INTO `roles` (`id`, `slug`, `name`, `permissions`, `description`, `is_def
 -- Table structure for table `role_users`
 --
 
+DROP TABLE IF EXISTS `role_users`;
 CREATE TABLE `role_users` (
   `user_id` bigint(20) UNSIGNED NOT NULL,
   `role_id` bigint(20) UNSIGNED NOT NULL,
@@ -1281,6 +1327,7 @@ CREATE TABLE `role_users` (
 -- Table structure for table `settings`
 --
 
+DROP TABLE IF EXISTS `settings`;
 CREATE TABLE `settings` (
   `id` bigint(20) UNSIGNED NOT NULL,
   `key` varchar(255) NOT NULL,
@@ -1562,6 +1609,7 @@ INSERT INTO `settings` (`id`, `key`, `value`, `created_at`, `updated_at`) VALUES
 -- Table structure for table `slugs`
 --
 
+DROP TABLE IF EXISTS `slugs`;
 CREATE TABLE `slugs` (
   `id` bigint(20) UNSIGNED NOT NULL,
   `key` varchar(255) NOT NULL,
@@ -1630,6 +1678,7 @@ INSERT INTO `slugs` (`id`, `key`, `reference_id`, `reference_type`, `prefix`, `c
 -- Table structure for table `slugs_translations`
 --
 
+DROP TABLE IF EXISTS `slugs_translations`;
 CREATE TABLE `slugs_translations` (
   `lang_code` varchar(20) NOT NULL,
   `slugs_id` bigint(20) UNSIGNED NOT NULL,
@@ -1643,6 +1692,7 @@ CREATE TABLE `slugs_translations` (
 -- Table structure for table `tags`
 --
 
+DROP TABLE IF EXISTS `tags`;
 CREATE TABLE `tags` (
   `id` bigint(20) UNSIGNED NOT NULL,
   `name` varchar(120) NOT NULL,
@@ -1678,6 +1728,7 @@ INSERT INTO `tags` (`id`, `name`, `author_id`, `author_type`, `description`, `st
 -- Table structure for table `tags_translations`
 --
 
+DROP TABLE IF EXISTS `tags_translations`;
 CREATE TABLE `tags_translations` (
   `lang_code` varchar(20) NOT NULL,
   `tags_id` bigint(20) UNSIGNED NOT NULL,
@@ -1701,6 +1752,7 @@ INSERT INTO `tags_translations` (`lang_code`, `tags_id`, `name`, `description`) 
 -- Table structure for table `users`
 --
 
+DROP TABLE IF EXISTS `users`;
 CREATE TABLE `users` (
   `id` bigint(20) UNSIGNED NOT NULL,
   `email` varchar(255) NOT NULL,
@@ -1732,6 +1784,7 @@ INSERT INTO `users` (`id`, `email`, `email_verified_at`, `password`, `remember_t
 -- Table structure for table `user_meta`
 --
 
+DROP TABLE IF EXISTS `user_meta`;
 CREATE TABLE `user_meta` (
   `id` bigint(20) UNSIGNED NOT NULL,
   `key` varchar(120) DEFAULT NULL,
@@ -1747,6 +1800,7 @@ CREATE TABLE `user_meta` (
 -- Table structure for table `widgets`
 --
 
+DROP TABLE IF EXISTS `widgets`;
 CREATE TABLE `widgets` (
   `id` bigint(20) UNSIGNED NOT NULL,
   `widget_id` varchar(120) NOT NULL,
