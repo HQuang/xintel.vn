@@ -1,6 +1,8 @@
 <?php
 
+use Botble\Theme\Supports\ThemeSupport;
 use Botble\Media\Facades\RvMedia;
+use Illuminate\Routing\Events\RouteMatched;
 
 app()->booted(function () {
     theme_option()
@@ -2474,16 +2476,16 @@ and innovative blockchain solutions.',
             'icon'       => 'fa fa-window-minimize',
         ])
         ->setField([
-            'id'         => 'footer_text',
+            'id'         => 'footer_site_description',
             'section_id' => 'opt-text-subsection-footer',
-            'type'       => 'textarea',
-            'label'      => __('Footer Text'),
+            'type'       => 'wysiwyg',
+            'label'      => __('Footer site description'),
             'attributes' => [
-                'name'    => 'footer_text',
+                'name'    => 'footer_site_description',
                 'value'   => '<b>XIN Ecosystem</b> <br> Explore the world and begin your transformation journey in a fairer and more convenient way with XIN.',
                 'options' => [
                     'class'        => 'form-control',
-                    'placeholder'  => __('Enter footer text'),
+                    'placeholder'  => __('Enter Footer site description'),
                     'data-counter' => 1000,
                     'rows'         => 3,
                 ],
@@ -2683,3 +2685,7 @@ register_sidebar([
 ]);
 
 RvMedia::setUploadPathAndURLToPublic();
+
+app('events')->listen(RouteMatched::class, function () {
+    ThemeSupport::registerSocialLinks();
+});
