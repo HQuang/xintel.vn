@@ -246,8 +246,8 @@ textarea {
   width: 514px;
   height: 514px;
   border-radius: 50%;
-  background: -webkit-gradient(linear, left top, left bottom, from(rgba(224, 24, 255, 0.5)), to(rgba(134, 14, 153, 0.5)));
-  background: linear-gradient(180deg, rgba(224, 24, 255, 0.5) 0%, rgba(134, 14, 153, 0.5) 100%);
+  background: -webkit-gradient(linear, left top, left bottom, from(#0185CC), to(#0185CC));
+  background: linear-gradient(180deg, #0185CC 0%, #0185CC 100%);
   -webkit-filter: blur(250px);
           filter: blur(250px);
   position: absolute;
@@ -1733,8 +1733,8 @@ label {
   width: 514px;
   height: 514px;
   border-radius: 50%;
-  background: -webkit-gradient(linear, left top, left bottom, from(rgba(224, 24, 255, 0.5)), to(rgba(134, 14, 153, 0.5)));
-  background: linear-gradient(180deg, rgba(224, 24, 255, 0.5) 0%, rgba(134, 14, 153, 0.5) 100%);
+  background: -webkit-gradient(linear, left top, left bottom, from(#0185CC), to(#0185CC));
+  background: linear-gradient(180deg, #0185CC 0%, #0185CC 100%);
   -webkit-filter: blur(250px);
           filter: blur(250px);
   position: absolute;
@@ -2561,13 +2561,13 @@ label {
   }
 }
 .cs_site_header.cs_style_1.cs_type_1 {
-  background-color: #130a13;
+  background-color: #00151f;
   -webkit-box-shadow: 0px 4px 4px 0px rgba(0, 0, 0, 0.2);
           box-shadow: 0px 4px 4px 0px rgba(0, 0, 0, 0.2);
 }
 
 .cs_site_header.cs_style_1.cs_sticky_active {
-  background-color: #130a13;
+  background-color: #00151f;
   -webkit-box-shadow: 0px 4px 4px 0px rgba(0, 0, 0, 0.2);
           box-shadow: 0px 4px 4px 0px rgba(0, 0, 0, 0.2);
 }
@@ -2612,7 +2612,7 @@ label {
   opacity: 0;
   -webkit-transition: all 0.4s ease;
   transition: all 0.4s ease;
-  background-color: #130a13;
+  background-color: #00151f;
 }
 .cs_gescout_sticky.cs_fixed_sticky {
   top: 0;
@@ -2755,7 +2755,7 @@ label {
   }
   .cs_nav .cs_nav_list ul {
     width: 260px;
-    background-color: #130a13;
+    background-color: #00151f;
     position: absolute;
     border-top: 2px solid var(--accent-color);
     -webkit-box-shadow: 0px 1px 2px 0px rgba(2, 0, 181, 0.1);
@@ -3001,8 +3001,6 @@ label {
   8. Footer
 ----------------------------------------------------------------*/
 .cs_footer {
-  padding-top: 1px;
-  margin-top: 252px;
   background-position: top center;
 }
 .cs_footer .cs_cta.cs_style_1 {
@@ -3088,8 +3086,10 @@ label {
 }
 
 .cs_footer_row {
-  display: -webkit-box;
-  display: -ms-flexbox;
+  /*display: grid;*/
+  grid-template-columns: repeat(5, 1fr);
+  /*display: -webkit-box;*/
+  /*display: -ms-flexbox;*/
   display: flex;
   gap: 50px 70px;
   padding: 80px 0 60px;
@@ -3110,6 +3110,11 @@ label {
       -ms-flex: 1;
           flex: 1;
 }
+
+.cs_footer_row .cs_footer_col:first-child {
+  grid-column: span 3 / span 3;
+}
+
 .cs_footer_row .cs_footer_col:first-child, .cs_footer_row .cs_footer_col:last-child {
   -webkit-box-flex: 1.7;
       -ms-flex: 1.7;
@@ -4095,4 +4100,38 @@ ul .header-social {
   display: flex;
   gap: 10px 20px;
   position: relative;
+}
+
+.hqd_hero_thumb img{
+  max-height: 629px;
+}
+.hqd_btn_app_img img{
+  height: 48px;
+}
+.cs_team_thumbnail.cs_center{
+  display: inline-block;
+}
+
+.cs_team.cs_style_1 {
+  display: flex;
+  flex-direction: column;
+}
+
+.cs_team_thumbnail {
+  overflow: hidden;
+}
+
+.map-placeholder>div>iframe{
+  border-radius: 15px;
+}
+
+
+@media (max-width: 480px) {
+  .area_contact_form {
+    margin-bottom: 30px;
+  }
+
+  .cs_footer {
+
+  }
 }

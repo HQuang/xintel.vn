@@ -1,105 +1,202 @@
-<!-- Strategic Partner Section -->
-<section class="strategic-partner-section" id="partners">
-    <div class="auto-container">
-        <div class="row clearfix">
-            <!-- Left Content Column -->
-            <div class="col-lg-4 col-md-12 content-column">
-                <div class="strategic-content">
-                    <h2 class="strategic-title">{{ theme_option('partner_heading', 'STRATEGIC PARTNER') }}</h2>
-                    <p class="strategic-text">
-                        {{ theme_option(
-                            'partner_sub_heading',
-                            'We are building the XIN ecosystem alongside leading partners across various
-                                                                        sectors – from technology and finance to tourism and media. Trust and long-term collaboration
-                                                                        are the foundation of every step forward.',
-                        ) }}
-                    </p>
+<style>
 
-                    <!-- Navigation Buttons -->
-                    <div class="partner-navigation">
-                        <a href="#" class="partner-prev">
-                            <img src="{{ Theme::asset()->url('images/icons/arrow-left.png') }}" alt="Previous">
-                        </a>
-                        <a href="#" class="partner-next">
-                            <img src="{{ Theme::asset()->url('images/icons/arrow-right.png') }}" alt="Next">
-                        </a>
+    .cs_partners_wrap {
+        background-color: #10172d; /* Nền đậm hơn một chút cho container */
+        padding: 40px 20px;
+        text-align: center;
+        overflow: hidden; /* Để chứa animation cuộn */
+        position: relative;
+        min-height: 50vh;
+    }
+
+    .logo-marquee {
+        width: 100%;
+        overflow: hidden;
+        padding: 15px 0;
+        white-space: nowrap; /* Ngăn các logo xuống dòng */
+    }
+
+    .logo-track {
+        display: inline-block; /* Cho phép animation */
+        animation: scroll-left 30s linear infinite; /* Tốc độ và lặp lại animation */
+    }
+
+    .logo-track.reverse {
+        animation: scroll-right 30s linear infinite; /* Tốc độ và lặp lại animation */
+    }
+
+
+    .logo-item {
+        display: inline-flex; /* Sắp xếp logo và tên thẳng hàng */
+        align-items: center;
+        justify-content: center;
+        padding: 10px 15px;
+        margin: 0 12px; /* Khoảng cách giữa các logo */
+        height: 50px; /* Chiều cao cố định cho logo */
+        min-width: 150px; /* Độ rộng tối thiểu */
+        transition: transform 0.3s ease, box-shadow 0.3s ease;
+    }
+
+    .logo-item:hover {
+        transform: translateY(-5px);
+        box-shadow: 0 5px 15px rgba(0, 191, 255, 0.2);
+    }
+
+    .logo-item img {
+        max-height: 30px; /* Chiều cao tối đa của ảnh logo */
+        width: auto;
+        margin-right: 8px;
+    }
+
+    .logo-item span {
+        font-size: 0.9rem;
+        font-weight: 600;
+        color: #c0c0c0; /* Màu chữ cho tên logo */
+    }
+
+    /* Điều chỉnh màu sắc cụ thể cho từng logo nếu cần */
+    .logo-item.binance span { color: #F0B90B; }
+    .logo-item.ethereum span { color: #627EEA; }
+    .logo-item.arbitrum span { color: #28A0F0; }
+    .logo-item.optimism span { color: #FF0420; }
+    .logo-item.bitcoin span { color: #F7931A; }
+    .logo-item.omni span { color: #00AEEF; } /* Giả sử màu cho Omni */
+    .logo-item.kucoin span { color: #24AE8F; }
+
+
+    .robot-mascot {
+        margin-top: 40px; /* Khoảng cách từ logo xuống robot */
+        position: relative;
+        z-index: 10; /* Đảm bảo robot nổi bật */
+    }
+
+    .robot-mascot img {
+        max-width: 180px; /* Kích thước robot */
+        height: auto;
+        filter: drop-shadow(0 0 15px rgba(0, 191, 255, 0.5));
+        animation: float 3s ease-in-out infinite; /* Animation lơ lửng cho robot */
+    }
+
+    /* Keyframes cho animation cuộn từ phải sang trái */
+    @keyframes scroll-left {
+        0% {
+            transform: translateX(0%);
+        }
+        100% {
+            transform: translateX(-100%); /* Di chuyển toàn bộ chiều rộng của track */
+        }
+    }
+
+    /* Keyframes cho animation cuộn từ trái sang phải */
+    @keyframes scroll-right {
+        0% {
+            transform: translateX(-100%);
+        }
+        100% {
+            transform: translateX(0%);
+        }
+    }
+
+    /* Keyframes cho animation lơ lửng của robot */
+    @keyframes float {
+        0% {
+            transform: translateY(0px);
+        }
+        50% {
+            transform: translateY(-10px);
+        }
+        100% {
+            transform: translateY(0px);
+        }
+    }
+
+    /* Responsive adjustments */
+    @media (max-width: 768px) {
+        .cs_partners_wrap {
+            padding: 20px 10px;
+        }
+        .logo-item {
+            min-width: 120px;
+            padding: 8px 10px;
+            margin: 0 8px;
+        }
+        .logo-item span {
+            font-size: 0.8rem;
+        }
+        .robot-mascot img {
+            max-width: 120px;
+        }
+        .logo-track {
+            animation-duration: 20s; /* Tăng tốc độ cuộn trên mobile */
+        }
+        .logo-track.reverse {
+            animation-duration: 20s;
+        }
+    }
+</style>
+
+<section class="cs_partners_wrap cs_blog_partners_1 position-relative hero-bg d-flex align-items-center justify-content-center p-3 p-md-4" id="{{ theme_option('opt-partners_section_id') }}">
+    <div class="cs_height_120 cs_height_lg_80"></div>
+    <div class="container">
+        <div class="background-slideshow">
+            <div class="bg-image active" style="background-image: url('{{ Theme::asset()->url('images/experiences/experience_bg.png') }}');"></div>
+        </div>
+        <div class="hero-overlay"></div>
+
+        <div class="container text-center position-relative" style="z-index: 1;">
+            <div class="row justify-content-center">
+                @php
+                    $itemInfor = theme_option('opt-partners_section_items');
+                    $itemInfor = json_decode($itemInfor, true);
+                    $newAppInfor = [];
+                    if ($itemInfor) {
+                        foreach ($itemInfor as $item) {
+                            $newAppInfor[] = Arr::pluck($item, 'value', 'key');
+                        }
+                    }
+
+                @endphp
+                <div class="logo-marquee" aria-hidden="true">
+                    <div class="logo-track">
+                        @foreach($newAppInfor as $partner)
+                        <div class="logo-item {{ $partner['title'] }}">
+                            <img src="{{ RvMedia::getImageUrl($partner['thumbnail']) }}" alt="{{ $partner['title'] }}">
+                        </div>
+                        @endforeach
                     </div>
                 </div>
-            </div>
 
-            <!-- Right Slider Column -->
-            <div class="col-lg-8 col-md-12 slider-column">
-                <div class="partners-slider swiper-container">
-                    <div class="swiper-wrapper">
-                        @php
-                            $partners = theme_option('partners');
-                            $partners = json_decode($partners);
-                            $partnersCount = is_array($partners) ? count($partners) : 0;
-                            $partnersPerSlide = 8; // 4x2 grid implies 8 partners per slide.
-                            // With 160x160px items and 24px gap, this might need adjustment
-                            // depending on available width, or how many rows you want.
-                            // For a single row of 4 items, partnersPerSlide should be 4.
-                            // Let's assume 2 rows of 4, so 8 is fine.
-$slidesCount = ceil($partnersCount / $partnersPerSlide);
-
-// Fallback partners if none are defined in theme options
-$fallbackPartners = [
-    ['name' => 'Starbucks', 'logo' => Theme::asset()->url('images/icons/Partner-1.png')],
-    [
-        'name' => 'Highlands Coffee',
-        'logo' => Theme::asset()->url('images/icons/Partner-2.png'),
-    ],
-    ['name' => 'KFC', 'logo' => Theme::asset()->url('images/icons/Partner-3.png')],
-    ['name' => 'Lotteria', 'logo' => Theme::asset()->url('images/icons/Partner-4.png')],
-    ['name' => 'Monster', 'logo' => Theme::asset()->url('images/icons/Partner-5.png')],
-    ['name' => 'Riot Games', 'logo' => Theme::asset()->url('images/icons/Partner-6.png')],
-    [
-        'name' => 'Take-Two Interactive',
-        'logo' => Theme::asset()->url('images/icons/Partner-7.png'),
-    ],
-    [
-        'name' => 'Marvel Studios',
-        'logo' => Theme::asset()->url('images/icons/Partner-8.png'),
-                                ],
-                            ];
-                        @endphp
-
-                        @if ($partnersCount > 0)
-                            @for ($slide = 0; $slide < $slidesCount; $slide++)
-                                <div class="swiper-slide">
-                                    <div class="partners-grid">
-                                        @for ($i = $slide * $partnersPerSlide; $i < min(($slide + 1) * $partnersPerSlide, $partnersCount); $i++)
-                                            <div class="partner-item">
-                                                <div class="partner-logo-box">
-                                                    @if (isset($partners[$i][1]->value) && $partners[$i][1]->value)
-                                                        <img src="{{ RvMedia::getImageUrl($partners[$i][1]->value) }}"
-                                                            alt="{{ $partners[$i][0]->name ?? 'Partner' }}">
-                                                    @endif
-                                                </div>
-                                            </div>
-                                        @endfor
-                                    </div>
-                                </div>
-                            @endfor
-                        @else
-                            <!-- Fallback slide if no partners defined -->
-                            <div class="swiper-slide">
-                                <div class="partners-grid">
-                                    @foreach ($fallbackPartners as $partner)
-                                        <div class="partner-item">
-                                            <div class="partner-logo-box">
-                                                <img src="{{ Theme::asset()->url($partner['logo']) }}"
-                                                    alt="{{ $partner['name'] }}">
-                                            </div>
-                                        </div>
-                                    @endforeach
-                                </div>
+                <div class="logo-marquee" aria-hidden="true">
+                    <div class="logo-track reverse">
+                        @foreach($newAppInfor as $partner)
+                            <div class="logo-item {{ $partner['title'] }}">
+                                <img src="{{ RvMedia::getImageUrl($partner['thumbnail']) }}" alt="{{ $partner['title'] }}">
                             </div>
-                        @endif
+                        @endforeach
                     </div>
+                </div>
+
+                <div class="robot-mascot">
+                    <img src="{{ RvMedia::getImageUrl(theme_option('opt-partners_section_mascot')) }}" alt="Linh vật Robot" class="animated pulse infinite">
                 </div>
             </div>
         </div>
     </div>
+    <div class="cs_height_120 cs_height_lg_80"></div>
 </section>
-<!-- End Strategic Partner Section -->
+
+<script>
+    // JavaScript không thực sự cần thiết cho hiệu ứng cuộn chính vì nó được xử lý bằng CSS animations.
+    // Tuy nhiên, bạn có thể thêm JS để điều khiển tốc độ, tạm dừng khi hover, etc.
+
+    // Ví dụ: Tạm dừng animation khi hover chuột vào track logo
+    const logoTracks = document.querySelectorAll('.logo-track');
+    logoTracks.forEach(track => {
+        track.addEventListener('mouseenter', () => {
+            track.style.animationPlayState = 'paused';
+        });
+        track.addEventListener('mouseleave', () => {
+            track.style.animationPlayState = 'running';
+        });
+    });
+</script>

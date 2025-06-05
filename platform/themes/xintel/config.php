@@ -56,12 +56,12 @@ return [
             $theme->asset()->usePath()->add('odometer', 'css/odometer.css');
             $theme->asset()->usePath()->add('style', 'css/style.css');
 
-            $theme->asset()->container('footer')->usePath()->add('gsap.min', 'js/gsap.min.js');
-            $theme->asset()->container('footer')->usePath()->add('jquery.slick.min', 'js/jquery.slick.min.js');
             $theme->asset()->container('footer')->usePath()->add('jquery-3.6.0.min', 'js/jquery-3.6.0.min.js');
-            $theme->asset()->container('footer')->usePath()->add('main', 'js/main.js');
-            $theme->asset()->container('footer')->usePath()->add('odometer', 'js/odometer.js');
+            $theme->asset()->container('footer')->usePath()->add('gsap.min', 'js/gsap.min.js');
             $theme->asset()->container('footer')->usePath()->add('wow', 'js/wow.min.js');
+            $theme->asset()->container('footer')->usePath()->add('jquery.slick.min', 'js/jquery.slick.min.js');
+            $theme->asset()->container('footer')->usePath()->add('odometer', 'js/odometer.js');
+            $theme->asset()->container('footer')->usePath()->add('main', 'js/main.js');
 
             if (function_exists('shortcode')) {
                 $theme->composer(['page', 'post'], function (\Botble\Shortcode\View\View $view) {

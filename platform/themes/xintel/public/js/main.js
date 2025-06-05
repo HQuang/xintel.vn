@@ -210,6 +210,129 @@
     }
   }
 
+  // contact form
+  $('.contact-form').on('submit', function(e) {
+    e.preventDefault();
+    var _self = $(this);
+
+    $.ajax({
+      type: 'POST',
+      cache: false,
+      url: _self.prop('action'),
+      data: new FormData(_self[0]),
+      contentType: false,
+      processData: false,
+      success: function(res) {
+        if (res.error) {
+          _self.find('.contact-error-message').html(res.message).show();
+          _self.find('.contact-success-message').hide();
+        } else {
+          _self.find('.contact-success-message').html(res.message).show();
+          _self.find('.contact-error-message').hide();
+          _self.find('input:not([type=hidden])').val('');
+          _self.find('textarea').val('');
+        }
+      },
+      error: function(res) {
+        var errors = res.responseJSON.errors;
+        _self.find('.contact-error-message').html('');
+
+        $.each(errors, function(key, value) {
+          _self.find('.contact-error-message').append(value + '<br>');
+        });
+
+        _self.find('.contact-success-message').hide();
+        _self.find('.contact-error-message').show();
+      }
+    });
+  });
+
+  // support form
+  $('.support-form, .cs_newsletter').on('submit', function(e) {
+    e.preventDefault();
+    var _self = $(this);
+
+    // Assign email value to input name
+    var emailValue = _self.find('input[name="email"]').val();
+    _self.find('input[name="name"]').val(emailValue);
+
+    $.ajax({
+      type: 'POST',
+      cache: false,
+      url: _self.prop('action'),
+      data: new FormData(_self[0]),
+      contentType: false,
+      processData: false,
+      success: function(res) {
+        if (res.error) {
+          _self.find('.contact-error-message').html(res.message).show();
+          _self.find('.contact-success-message').hide();
+        } else {
+          _self.find('.contact-success-message').html(res.message).show();
+          _self.find('.contact-error-message').hide();
+          _self.find('input:not([type=hidden])').val('');
+          _self.find('textarea').val('');
+        }
+      },
+      error: function(res) {
+        var errors = res.responseJSON.errors;
+        _self.find('.contact-error-message').html('');
+
+        $.each(errors, function(key, value) {
+          _self.find('.contact-error-message').append(value + '<br>');
+        });
+
+        _self.find('.contact-success-message').hide();
+        _self.find('.contact-error-message').show();
+      }
+    });
+  });
+
+
+  // Post Handle pagination clicks with AJAX
+  $('#blog-pagination').on('click', 'a.page-link', function(e) {
+    e.preventDefault();
+
+    var page = $(this).data('page');
+    var url = $(this).attr('href');
+
+    // Show loading indicator
+    $('#blog-posts-container').addClass('loading');
+
+    // Make AJAX request
+    $.ajax({
+      url: url,
+      type: 'GET',
+      dataType: 'html',
+      success: function(response) {
+        // Extract the blog posts container from the response
+        var newContent = $(response).find('#blog-posts-container').html();
+        var newPagination = $(response).find('#blog-pagination').html();
+
+        // Update the content
+        $('#blog-posts-container').html(newContent);
+        $('#blog-pagination').html(newPagination);
+
+        // Remove loading indicator
+        $('#blog-posts-container').removeClass('loading');
+
+        // Scroll to the top of the blog section
+        $('html, body').animate({
+          scrollTop: $('#blog-posts-container').offset().top - 100
+        }, 500);
+
+        // Reinitialize any necessary scripts
+        if (typeof WOW !== 'undefined') {
+          new WOW().init();
+        }
+      },
+      error: function(xhr, status, error) {
+        console.error('Error loading posts:', error);
+        $('#blog-posts-container').removeClass('loading');
+      }
+    });
+  });
+
   /*--------------------------------------------------------------
     6. Counter Animation
   --------------------------------------------------------------*/

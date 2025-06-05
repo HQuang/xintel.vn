@@ -6,36 +6,51 @@ use Illuminate\Routing\Events\RouteMatched;
 
 app()->booted(function () {
     theme_option()
-        // Banner Section - #home
+        // Hero section
         ->setSection([
-            'title'      => __('1. Hero Section'),
+            'title'      => __('Hero section'),
             'desc'       => __('Banner settings for website'),
-            'id'         => 'opt-text-subsection-banner',
+            'id'         => 'opt-xintel-mobile-app',
             'subsection' => true,
             'icon'       => 'fa fa-image',
         ])
         ->setField([
-            'id'         => 'banner_heading',
-            'section_id' => 'opt-text-subsection-banner',
+            'id'         => 'opt-xintel-mobile-app_section_id',
+            'section_id' => 'opt-xintel-mobile-app',
             'type'       => 'text',
-            'label'      => __('Banner Heading'),
+            'label'      => __('Section Id'),
             'attributes' => [
-                'name'    => 'banner_heading',
-                'value'   => 'What the XIN App Brings to You',
+                'name'    => 'opt-xintel-mobile-app_section_id',
+                'value'   => 'xintel-mobile-app',
                 'options' => [
                     'class'        => 'form-control',
-                    'placeholder'  => __('Enter banner heading'),
+                    'data-counter' => 250,
+                ],
+            ],
+            'helper'     => __('Sử dụng đặt vào cuối liên kết trong menu. <br> Ví dụ: https://domain.com/#section_id'),
+        ])
+        ->setField([
+            'id'         => 'opt-xintel-mobile-app-section_heading',
+            'section_id' => 'opt-xintel-mobile-app',
+            'type'       => 'text',
+            'label'      => __('Section Heading'),
+            'attributes' => [
+                'name'    => 'opt-xintel-mobile-app-section_heading',
+                'value'   => 'Xintel Moblie App',
+                'options' => [
+                    'class'        => 'form-control',
+                    'placeholder'  => __('Enter section heading'),
                     'data-counter' => 250,
                 ],
             ],
         ])
         ->setField([
-            'id'         => 'banner_text',
-            'section_id' => 'opt-text-subsection-banner',
+            'id'         => 'opt-xintel-mobile-app-section_left_text',
+            'section_id' => 'opt-xintel-mobile-app',
             'type'       => 'textarea',
             'label'      => __('Banner Text (Left)'),
             'attributes' => [
-                'name'    => 'banner_text',
+                'name'    => 'opt-xintel-mobile-app-section_left_text',
                 'value'   => "XIN is not just a simple travel platform; it is a space for users to express their passion for sharing stories of exploration and self-expression. Sharing photos, videos, and travel experiences has become an essential part of online life, and many social platforms are leveraging this trend to offer travel related services and experiences.",
                 'options' => [
                     'class'        => 'form-control',
@@ -46,48 +61,78 @@ app()->booted(function () {
             ],
         ])
         ->setField([
-            'id'         => 'banner_text_two',
-            'section_id' => 'opt-text-subsection-banner',
-            'type'       => 'textarea',
-            'label'      => __('Banner Text (Right)'),
+            'id'         => 'opt-xintel-mobile-app-section_icon_download_app',
+            'section_id' => 'opt-xintel-mobile-app',
+            'type'       => 'repeater',
+            'label'      => __('Download App Icon'),
             'attributes' => [
-                'name'    => 'banner_text_two',
-                'value'   => "XIN offers a powerful feature that enhances your overall travel experience and gives you a great opportunity to earn exciting rewards every second as you explore the world.",
-                'options' => [
-                    'class'        => 'form-control',
-                    'placeholder'  => __('Enter right banner text'),
-                    'data-counter' => 500,
-                    'rows'         => 3,
+                'name'   => 'opt-xintel-mobile-app-section_icon_download_app',
+                'value'  => null,
+                'fields' => [
+                    [
+                        'type'       => 'mediaImage',
+                        'label'      => __('App icon'),
+                        'attributes' => [
+                            'name'  => 'logo',
+                            'value' => null,
+                        ],
+                    ],
+                    [
+                        'type'       => 'text',
+                        'label'      => __('URL'),
+                        'attributes' => [
+                            'name'    => 'url',
+                            'value'   => null,
+                            'options' => [
+                                'class'        => 'form-control',
+                            ],
+                        ],
+                    ],
                 ],
             ],
         ])
         ->setField([
-            'id'         => 'banner_image',
-            'section_id' => 'opt-text-subsection-banner',
+            'id'         => 'opt-xintel-mobile-app-section_left_image',
+            'section_id' => 'opt-xintel-mobile-app',
             'type'       => 'mediaImage',
             'label'      => __('Banner Background'),
             'attributes' => [
-                'name'    => 'banner_image',
+                'name'    => 'opt-xintel-mobile-app-section_left_image',
                 'value'   => null,
             ],
         ])
 
-        // Gallery Section (About Section 2)
+        // Section 1.
         ->setSection([
-            'title'      => __('2. Section Product'),
-            'desc'       => __('Gallery settings for website'),
-            'id'         => 'opt-text-subsection-gallery',
+            'title'      => __('Section 1. What is Xintel?'),
+            'desc'       => __('What is xintel?'),
+            'id'         => 'opt-what-is-xintel',
             'subsection' => true,
             'icon'       => 'fa fa-images',
         ])
         ->setField([
-            'id'         => 'gallery_heading',
-            'section_id' => 'opt-text-subsection-gallery',
+            'id'         => 'opt-what-is-xintel_section_id',
+            'section_id' => 'opt-what-is-xintel',
+            'type'       => 'text',
+            'label'      => __('Section Id'),
+            'attributes' => [
+                'name'    => 'opt-what-is-xintel_section_id',
+                'value'   => 'what-is-xintel',
+                'options' => [
+                    'class'        => 'form-control',
+                    'data-counter' => 250,
+                ],
+            ],
+            'helper'     => __('Sử dụng đặt vào cuối liên kết trong menu. <br> Ví dụ: https://domain.com/#section_id'),
+        ])
+        ->setField([
+            'id'         => 'opt-what-is-xintel-section_heading',
+            'section_id' => 'opt-what-is-xintel',
             'type'       => 'text',
             'label'      => __('Gallery Heading'),
             'attributes' => [
-                'name'    => 'gallery_heading',
-                'value'   => 'WHAT IS XIN?',
+                'name'    => 'opt-what-is-xintel-section_heading',
+                'value'   => 'WHAT IS XINTEL?',
                 'options' => [
                     'class'        => 'form-control',
                     'placeholder'  => __('Enter gallery title'),
@@ -96,13 +141,13 @@ app()->booted(function () {
             ],
         ])
         ->setField([
-            'id'         => 'gallery_sub_heading',
-            'section_id' => 'opt-text-subsection-gallery',
+            'id'         => 'opt-what-is-xintel-section_sub_heading',
+            'section_id' => 'opt-what-is-xintel',
             'type'       => 'text',
-            'label'      => __('Gallery Sub Heading'),
+            'label'      => __('Section Sub Heading'),
             'attributes' => [
-                'name'    => 'gallery_sub_heading',
-                'value'   => "XIN is more than just a travel platform – it’s a space to share emotions, images, videos, and vibrant exploration experiences. Here, you don’t just inspire the community – you earn rewards every second as you connect and interact with the world.",
+                'name'    => 'opt-what-is-xintel-section_sub_heading',
+                'value'   => "XIN - Xfactor Intelligence",
                 'options' => [
                     'class'        => 'form-control',
                     'placeholder'  => __('Enter gallery sub title'),
@@ -111,278 +156,185 @@ app()->booted(function () {
             ],
         ])
         ->setField([
-            'id'         => 'gallery_1_image',
-            'section_id' => 'opt-text-subsection-gallery',
-            'type'       => 'mediaImage',
-            'label'      => __('Gallery 1 Image'),
-            'attributes' => [
-                'name'    => 'gallery_1_image',
-                'value'   => null,
-            ],
-        ])
-        ->setField([
-            'id'         => 'gallery_1_title',
-            'section_id' => 'opt-text-subsection-gallery',
+            'id'         => 'opt-what-is-xintel-section_description',
+            'section_id' => 'opt-what-is-xintel',
             'type'       => 'text',
-            'label'      => __('Gallery 1 Title'),
+            'label'      => __('Section Description'),
             'attributes' => [
-                'name'    => 'gallery_1_title',
-                'value'   => 'Transaction Fees',
+                'name'    => 'opt-what-is-xintel-section_description',
+                'value'   => "A groundbreaking travel app that combines social networking with payment gateways. XIN empowers you to generate income from every journey, expand your network, and connect with local communities, while immersing yourself in diverse cultures. Life isn’t just about making money — it’s about experiencing and sharing. Let XIN take you to a new world where life becomes more exciting and prosperous every day.",
                 'options' => [
                     'class'        => 'form-control',
-                    'placeholder'  => __('Enter gallery title'),
-                    'data-counter' => 250,
                 ],
             ],
         ])
         ->setField([
-            'id'         => 'gallery_1_content',
-            'section_id' => 'opt-text-subsection-gallery',
-            'type'       => 'textarea',
-            'label'      => __('Gallery 1 Content'),
-            'attributes' => [
-                'name'    => 'gallery_1_content',
-                'value'   => "From the exchange of services, products, and financial interactions between users, merchants, and businesses within the ecosystem.",
-                'options' => [
-                    'class'        => 'form-control',
-                    'placeholder'  => __('Enter gallery content'),
-                    'data-counter' => 500,
-                    'rows'         => 3,
-                ],
-            ],
-        ])
-        ->setField([
-            'id'         => 'gallery_2_image',
-            'section_id' => 'opt-text-subsection-gallery',
+            'id'         => 'opt-what-is-xintel-section_image_left',
+            'section_id' => 'opt-what-is-xintel',
             'type'       => 'mediaImage',
-            'label'      => __('Gallery 2 Image'),
+            'label'      => __('Section Image Left'),
             'attributes' => [
-                'name'    => 'gallery_2_image',
+                'name'    => 'opt-what-is-xintel-section_image_left',
                 'value'   => null,
-            ],
-        ])
-        ->setField([
-            'id'         => 'gallery_2_title',
-            'section_id' => 'opt-text-subsection-gallery',
-            'type'       => 'text',
-            'label'      => __('Gallery 2 Title'),
-            'attributes' => [
-                'name'    => 'gallery_2_title',
-                'value'   => 'In app Purchases',
-                'options' => [
-                    'class'        => 'form-control',
-                    'placeholder'  => __('Enter gallery title'),
-                    'data-counter' => 250,
-                ],
-            ],
-        ])
-        ->setField([
-            'id'         => 'gallery_2_content',
-            'section_id' => 'opt-text-subsection-gallery',
-            'type'       => 'textarea',
-            'label'      => __('Gallery 2 Content'),
-            'attributes' => [
-                'name'    => 'gallery_2_content',
-                'value'   => "Users pay to access premium utilities such as games, featured content display, shopping, and digital events.",
-                'options' => [
-                    'class'        => 'form-control',
-                    'placeholder'  => __('Enter gallery content'),
-                    'data-counter' => 500,
-                    'rows'         => 3,
-                ],
-            ],
-        ])
-        ->setField([
-            'id'         => 'gallery_3_image',
-            'section_id' => 'opt-text-subsection-gallery',
-            'type'       => 'mediaImage',
-            'label'      => __('Gallery 3 Image'),
-            'attributes' => [
-                'name'    => 'gallery_3_image',
-                'value'   => null,
-            ],
-        ])
-        ->setField([
-            'id'         => 'gallery_3_title',
-            'section_id' => 'opt-text-subsection-gallery',
-            'type'       => 'text',
-            'label'      => __('Gallery 3 Title'),
-            'attributes' => [
-                'name'    => 'gallery_3_title',
-                'value'   => 'Subscription & Membership',
-                'options' => [
-                    'class'        => 'form-control',
-                    'placeholder'  => __('Enter gallery title'),
-                    'data-counter' => 250,
-                ],
-            ],
-        ])
-        ->setField([
-            'id'         => 'gallery_3_content',
-            'section_id' => 'opt-text-subsection-gallery',
-            'type'       => 'textarea',
-            'label'      => __('Gallery 3 Content'),
-            'attributes' => [
-                'name'    => 'gallery_3_content',
-                'value'   => "Enhanced membership packages offer extended access, travel and financial benefits, and exclusive community privileges.",
-                'options' => [
-                    'class'        => 'form-control',
-                    'placeholder'  => __('Enter gallery content'),
-                    'data-counter' => 500,
-                    'rows'         => 3,
-                ],
-            ],
-        ])
-        ->setField([
-            'id'         => 'gallery_4_image',
-            'section_id' => 'opt-text-subsection-gallery',
-            'type'       => 'mediaImage',
-            'label'      => __('Gallery 4 Image'),
-            'attributes' => [
-                'name'    => 'gallery_4_image',
-                'value'   => null,
-            ],
-        ])
-        ->setField([
-            'id'         => 'gallery_4_title',
-            'section_id' => 'opt-text-subsection-gallery',
-            'type'       => 'text',
-            'label'      => __('Gallery 4 Title'),
-            'attributes' => [
-                'name'    => 'gallery_4_title',
-                'value'   => 'Commercial Partnerships & OTT Marketplace',
-                'options' => [
-                    'class'        => 'form-control',
-                    'placeholder'  => __('Enter gallery title'),
-                    'data-counter' => 250,
-                ],
-            ],
-        ])
-        ->setField([
-            'id'         => 'gallery_4_content',
-            'section_id' => 'opt-text-subsection-gallery',
-            'type'       => 'textarea',
-            'label'      => __('Gallery 4 Content'),
-            'attributes' => [
-                'name'    => 'gallery_4_content',
-                'value'   => "Businesses pay to set up storefronts, promote offerings, or integrate XIN payment within their platforms.",
-                'options' => [
-                    'class'        => 'form-control',
-                    'placeholder'  => __('Enter gallery content'),
-                    'data-counter' => 500,
-                    'rows'         => 3,
-                ],
-            ],
-        ])
-        ->setField([
-            'id'         => 'gallery_5_image',
-            'section_id' => 'opt-text-subsection-gallery',
-            'type'       => 'mediaImage',
-            'label'      => __('Gallery 5 Image'),
-            'attributes' => [
-                'name'    => 'gallery_5_image',
-                'value'   => null,
-            ],
-        ])
-        ->setField([
-            'id'         => 'gallery_5_title',
-            'section_id' => 'opt-text-subsection-gallery',
-            'type'       => 'text',
-            'label'      => __('Gallery 5 Title'),
-            'attributes' => [
-                'name'    => 'gallery_5_title',
-                'value'   => 'Payments via XIN Token',
-                'options' => [
-                    'class'        => 'form-control',
-                    'placeholder'  => __('Enter gallery title'),
-                    'data-counter' => 250,
-                ],
-            ],
-        ])
-        ->setField([
-            'id'         => 'gallery_5_content',
-            'section_id' => 'opt-text-subsection-gallery',
-            'type'       => 'textarea',
-            'label'      => __('Gallery 5 Content'),
-            'attributes' => [
-                'name'    => 'gallery_5_content',
-                'value'   => "Used for all services — tours, game items, OTT, and storefronts — seamlessly and securely.",
-                'options' => [
-                    'class'        => 'form-control',
-                    'placeholder'  => __('Enter gallery content'),
-                    'data-counter' => 500,
-                    'rows'         => 3,
-                ],
-            ],
-        ])
-        ->setField([
-            'id'         => 'gallery_6_image',
-            'section_id' => 'opt-text-subsection-gallery',
-            'type'       => 'mediaImage',
-            'label'      => __('Gallery 6 Image'),
-            'attributes' => [
-                'name'    => 'gallery_6_image',
-                'value'   => null,
-            ],
-        ])
-        ->setField([
-            'id'         => 'gallery_6_title',
-            'section_id' => 'opt-text-subsection-gallery',
-            'type'       => 'text',
-            'label'      => __('Gallery 6 Title'),
-            'attributes' => [
-                'name'    => 'gallery_6_title',
-                'value'   => 'Staking XIN Token',
-                'options' => [
-                    'class'        => 'form-control',
-                    'placeholder'  => __('Enter gallery title'),
-                    'data-counter' => 250,
-                ],
-            ],
-        ])
-        ->setField([
-            'id'         => 'gallery_6_content',
-            'section_id' => 'opt-text-subsection-gallery',
-            'type'       => 'textarea',
-            'label'      => __('Gallery 6 Content'),
-            'attributes' => [
-                'name'    => 'gallery_6_content',
-                'value'   => "Earn periodic rewards, unlock premium content, and participate in community governance.",
-                'options' => [
-                    'class'        => 'form-control',
-                    'placeholder'  => __('Enter gallery content'),
-                    'data-counter' => 500,
-                    'rows'         => 3,
-                ],
             ],
         ])
 
-        // Growth Mechanism Section
+        // Section 2: Vision
         ->setSection([
-            'title'      => __('3. Section Development Mechanism'),
-            'desc'       => __('Growth Mechanism section settings'),
-            'id'         => 'opt-text-subsection-growth-mechanism',
+            'title'      => __('Section 2. Vision'),
+            'desc'       => __('Vision'),
+            'id'         => 'opt-vision',
+            'subsection' => true,
+            'icon'       => 'fa fa-images',
+        ])
+        ->setField([
+            'id'         => 'opt-vision_section_id',
+            'section_id' => 'opt-vision',
+            'type'       => 'text',
+            'label'      => __('Section Id'),
+            'attributes' => [
+                'name'    => 'opt-vision_section_id',
+                'value'   => 'vision',
+                'options' => [
+                    'class'        => 'form-control',
+                    'data-counter' => 250,
+                ],
+            ],
+            'helper'     => __('Sử dụng đặt vào cuối liên kết trong menu. <br> Ví dụ: https://domain.com/#section_id'),
+        ])
+        ->setField([
+            'id'         => 'opt-vision-section_heading',
+            'section_id' => 'opt-vision',
+            'type'       => 'text',
+            'label'      => __('Gallery Heading'),
+            'attributes' => [
+                'name'    => 'opt-vision-section_heading',
+                'value'   => 'Vision',
+                'options' => [
+                    'class'        => 'form-control',
+                    'placeholder'  => __('Enter gallery title'),
+                    'data-counter' => 250,
+                ],
+            ],
+        ])
+        ->setField([
+            'id'         => 'opt-vision-section_description',
+            'section_id' => 'opt-vision',
+            'type'       => 'textarea',
+            'label'      => __('Section Description'),
+            'attributes' => [
+                'name'    => 'opt-vision-section_description',
+                'value'   => "A groundbreaking travel app that combines social networking with payment gateways. XIN empowers you to generate income from every journey, expand your network, and connect with local communities, while immersing yourself in diverse cultures. Life isn’t just about making money — it’s about experiencing and sharing. Let XIN take you to a new world where life becomes more exciting and prosperous every day.",
+                'options' => [
+                    'class'        => 'form-control',
+                ],
+            ],
+        ])
+        ->setField([
+            'id'         => 'opt-vision-section_image_right',
+            'section_id' => 'opt-vision',
+            'type'       => 'mediaImage',
+            'label'      => __('Section Image Right'),
+            'attributes' => [
+                'name'    => 'opt-vision-section_image_right',
+                'value'   => null,
+            ],
+        ])
+
+        // Section 3: Mission
+        ->setSection([
+            'title'      => __('Section 3. Mission'),
+            'desc'       => __('Mission'),
+            'id'         => 'opt-mission',
+            'subsection' => true,
+            'icon'       => 'fa fa-images',
+        ])
+        ->setField([
+            'id'         => 'opt-mission_section_id',
+            'section_id' => 'opt-mission',
+            'type'       => 'text',
+            'label'      => __('Section Id'),
+            'attributes' => [
+                'name'    => 'opt-mission_section_id',
+                'value'   => 'mission',
+                'options' => [
+                    'class'        => 'form-control',
+                    'data-counter' => 250,
+                ],
+            ],
+            'helper'     => __('Sử dụng đặt vào cuối liên kết trong menu. <br> Ví dụ: https://domain.com/#section_id'),
+        ])
+        ->setField([
+            'id'         => 'opt-mission-section_heading',
+            'section_id' => 'opt-mission',
+            'type'       => 'text',
+            'label'      => __('Gallery Heading'),
+            'attributes' => [
+                'name'    => 'opt-mission-section_heading',
+                'value'   => 'Mission',
+                'options' => [
+                    'class'        => 'form-control',
+                    'placeholder'  => __('Enter gallery title'),
+                    'data-counter' => 250,
+                ],
+            ],
+        ])
+        ->setField([
+            'id'         => 'opt-mission-section_description',
+            'section_id' => 'opt-mission',
+            'type'       => 'editor',
+            'label'      => __('Section Description'),
+            'attributes' => [
+                'name'    => 'opt-mission-section_description',
+                'value'   => "XIN is not just a travel app — it’s a bridge that connects you with local communities and diverse cultures.
+It creates millions of job opportunities for society. We help you earn profit from your journeys, expand your network, and enjoy rich and fulfilling travel experiences.",
+                'options' => [
+                    'class'        => 'form-control',
+                ],
+            ],
+        ])
+        ->setField([
+            'id'         => 'opt-mission-section_image_left',
+            'section_id' => 'opt-mission',
+            'type'       => 'mediaImage',
+            'label'      => __('Section Image Left'),
+            'attributes' => [
+                'name'    => 'opt-mission-section_image_left',
+                'value'   => null,
+            ],
+        ])
+
+        // Section 4. Value Delivered
+        ->setSection([
+            'title'      => __('Section 4. Value Delivered'),
+            'desc'       => __('Value Delivered settings'),
+            'id'         => 'opt-value-delivered',
             'subsection' => true,
             'icon'       => 'fa fa-chart-line',
         ])
         ->setField([
-            'id'         => 'growth_background_image',
-            'section_id' => 'opt-text-subsection-growth-mechanism',
-            'type'       => 'mediaImage',
-            'label'      => __('Background Image'),
+            'id'         => 'opt-value-delivered_section_id',
+            'section_id' => 'opt-value-delivered',
+            'type'       => 'text',
+            'label'      => __('Section Id'),
             'attributes' => [
-                'name'  => 'growth_background_image',
-                'value' => null,
+                'name'    => 'opt-value-delivered_section_id',
+                'value'   => 'delivered',
+                'options' => [
+                    'class'        => 'form-control',
+                    'data-counter' => 250,
+                ],
             ],
+            'helper'     => __('Sử dụng đặt vào cuối liên kết trong menu. <br> Ví dụ: https://domain.com/#section_id'),
         ])
         ->setField([
-            'id'         => 'growth_title',
-            'section_id' => 'opt-text-subsection-growth-mechanism',
+            'id'         => 'opt-value-delivered_section_handing',
+            'section_id' => 'opt-value-delivered',
             'type'       => 'text',
             'label'      => __('Section Title'),
             'attributes' => [
-                'name'    => 'growth_title',
-                'value'   => 'Growth Mechanism',
+                'name'    => 'opt-value-delivered_section_handing',
+                'value'   => 'Value Delivered',
                 'options' => [
                     'class'        => 'form-control',
                     'data-counter' => 250,
@@ -390,1966 +342,675 @@ app()->booted(function () {
             ],
         ])
         ->setField([
-            'id'         => 'growth_description',
-            'section_id' => 'opt-text-subsection-growth-mechanism',
-            'type'       => 'text',
-            'label'      => __('Section Description'),
+            'id'         => 'opt-value-delivered_section_items',
+            'section_id' => 'opt-value-delivered',
+            'type'       => 'repeater',
+            'label'      => __('Value Delivered - (Note: must be divisible by 2)'),
             'attributes' => [
-                'name'    => 'growth_description',
-                'value'   => "XIN is a platform that combines three core pillars: Travel & Earn, Social FI, and a Payment Gateway — making travel easier, fostering community connections, and enabling secure blockchain-based payments.",
-                'options' => [
-                    'class'        => 'form-control',
-                    'rows'         => 4,
+                'name'   => 'opt-value-delivered_section_items',
+                'value'  => null,
+                'fields' => [
+                    [
+                        'type'       => 'mediaImage',
+                        'label'      => __('Logo'),
+                        'attributes' => [
+                            'name'  => 'logo',
+                            'value' => null,
+                        ],
+                    ],
+                    [
+                        'type'       => 'text',
+                        'label'      => __('Description'),
+                        'attributes' => [
+                            'name'    => 'description',
+                            'value'   => null,
+                            'options' => [
+                                'class'        => 'form-control',
+                                'data-counter' => 120,
+                            ],
+                        ],
+                    ],
                 ],
-            ],
-        ])
-        // Mission Block
-        ->setField([
-            'id'         => 'growth_mission_title',
-            'section_id' => 'opt-text-subsection-growth-mechanism',
-            'type'       => 'text',
-            'label'      => __('Mission Title'),
-            'attributes' => [
-                'name'    => 'growth_mission_title',
-                'value'   => 'Mission',
-                'options' => [
-                    'class'        => 'form-control',
-                    'data-counter' => 250,
-                ],
-            ],
-        ])
-        ->setField([
-            'id'         => 'growth_mission_description',
-            'section_id' => 'opt-text-subsection-growth-mechanism',
-            'type'       => 'textarea',
-            'label'      => __('Mission Description'),
-            'attributes' => [
-                'name'    => 'growth_mission_description',
-                'value'   => "To help users earn while traveling, connect global communities, and simplify international payments on a secure platform.",
-                'options' => [
-                    'class' => 'form-control',
-                    'rows'  => 3,
-                ],
-            ],
-        ])
-        ->setField([
-            'id'         => 'growth_mission_image',
-            'section_id' => 'opt-text-subsection-growth-mechanism',
-            'type'       => 'mediaImage',
-            'label'      => __('Mission Image'),
-            'attributes' => [
-                'name'  => 'growth_mission_image',
-                'value' => null,
             ],
         ])
 
-        // Goal Block
-        ->setField([
-            'id'         => 'growth_goal_title',
-            'section_id' => 'opt-text-subsection-growth-mechanism',
-            'type'       => 'text',
-            'label'      => __('Goal Title'),
-            'attributes' => [
-                'name'    => 'growth_goal_title',
-                'value'   => 'Goal',
-                'options' => [
-                    'class'        => 'form-control',
-                    'data-counter' => 250,
-                ],
-            ],
-        ])
-        ->setField([
-            'id'         => 'growth_goal_description',
-            'section_id' => 'opt-text-subsection-growth-mechanism',
-            'type'       => 'textarea',
-            'label'      => __('Goal Description'),
-            'attributes' => [
-                'name'    => 'growth_goal_description',
-                'value'   => "By 2028, XIN aims to connect millions of travelers, promote cultural exchange, and become a globally influential travel platform.",
-                'options' => [
-                    'class' => 'form-control',
-                    'rows'  => 3,
-                ],
-            ],
-        ])
-        ->setField([
-            'id'         => 'growth_goal_image',
-            'section_id' => 'opt-text-subsection-growth-mechanism',
-            'type'       => 'mediaImage',
-            'label'      => __('Goal Image'),
-            'attributes' => [
-                'name'  => 'growth_goal_image',
-                'value' => null,
-            ],
-        ])
-
-        // Vision Block
-        ->setField([
-            'id'         => 'growth_vision_title',
-            'section_id' => 'opt-text-subsection-growth-mechanism',
-            'type'       => 'text',
-            'label'      => __('Vision Title'),
-            'attributes' => [
-                'name'    => 'growth_vision_title',
-                'value'   => 'Vision',
-                'options' => [
-                    'class'        => 'form-control',
-                    'data-counter' => 250,
-                ],
-            ],
-        ])
-        ->setField([
-            'id'         => 'growth_vision_description',
-            'section_id' => 'opt-text-subsection-growth-mechanism',
-            'type'       => 'textarea',
-            'label'      => __('Vision Description'),
-            'attributes' => [
-                'name'    => 'growth_vision_description',
-                'value'   => "To become the leading platform where travel is not just an experience, but a chance to create value — with flexible services tailored to every user’s needs.",
-                'options' => [
-                    'class' => 'form-control',
-                    'rows'  => 3,
-                ],
-            ],
-        ])
-        ->setField([
-            'id'         => 'growth_vision_image',
-            'section_id' => 'opt-text-subsection-growth-mechanism',
-            'type'       => 'mediaImage',
-            'label'      => __('Vision Image'),
-            'attributes' => [
-                'name'  => 'growth_vision_image',
-                'value' => null,
-            ],
-        ])
-
-        // Ecosystem Section
+        // Section 5. Why Choose XINTEL ?
         ->setSection([
-            'title'      => __('4. Section Ecosystem'),
-            'desc'       => __('Ecosystem section settings'),
-            'id'         => 'opt-text-subsection-ecosystem',
-            'subsection' => true,
-            'icon'       => 'fa fa-sitemap',
-        ])
-        ->setField([
-            'id'         => 'ecosystem_section_heading',
-            'section_id' => 'opt-text-subsection-ecosystem',
-            'type'       => 'text',
-            'label'      => __('Section Heading'),
-            'attributes' => [
-                'name'    => 'ecosystem_section_heading',
-                'value'   => 'XIN Ecosystem',
-                'options' => [
-                    'class'        => 'form-control',
-                    'data-counter' => 250,
-                ],
-            ],
-        ])
-        ->setField([
-            'id'         => 'ecosystem_section_description',
-            'section_id' => 'opt-text-subsection-ecosystem',
-            'type'       => 'text',
-            'label'      => __('Section Description'),
-            'attributes' => [
-                'name'    => 'ecosystem_section_description',
-                'value'   => "XIN is a comprehensive ecosystem where every member not only connects but also grows sustainably within a secure, innovative digital network deeply rooted in local cultural identity.",
-                'options' => [
-                    'class' => 'form-control',
-                    'data-counter' => 250,
-                ],
-            ],
-        ])
-        // Sub Section 1
-        ->setField([
-            'id'         => 'ecosystem_sub_section_1_pin_icon',
-            'section_id' => 'opt-text-subsection-ecosystem',
-            'type'       => 'mediaImage',
-            'label'      => __('Sub Section 1 Pin Icon'),
-            'attributes' => [
-                'name'  => 'ecosystem_sub_section_1_pin_icon',
-                'value' => null,
-            ],
-        ])
-        ->setField([
-            'id'         => 'ecosystem_sub_section_1_heading',
-            'section_id' => 'opt-text-subsection-ecosystem',
-            'type'       => 'text',
-            'label'      => __('Sub Section 1 Heading'),
-            'attributes' => [
-                'name'    => 'ecosystem_sub_section_1_heading',
-                'value'   => 'Strong Community Connection',
-                'options' => [
-                    'class'        => 'form-control',
-                    'data-counter' => 250,
-                ],
-            ],
-        ])
-        ->setField([
-            'id'         => 'ecosystem_sub_section_1_content',
-            'section_id' => 'opt-text-subsection-ecosystem',
-            'type'       => 'text',
-            'label'      => __('Sub Section 1 Content'),
-            'attributes' => [
-                'name'    => 'ecosystem_sub_section_1_content',
-                'value'   => "From <b>XIN-Tel</b> – a global connectivity platform, to <b>XIN-Travel</b> – a space for preserving and promoting local culture, we build community hubs. With <b>XIN-Star</b>, users tell the stories of their regions through video, preserving experiences with technology.",
-                'options' => [
-                    'class' => 'form-control',
-                    'rows'  => 4,
-                ],
-            ],
-        ])
-        // Sub Section 2
-        ->setField([
-            'id'         => 'ecosystem_sub_section_2_pin_icon',
-            'section_id' => 'opt-text-subsection-ecosystem',
-            'type'       => 'mediaImage',
-            'label'      => __('Sub Section 2 Pin Icon'),
-            'attributes' => [
-                'name'  => 'ecosystem_sub_section_2_pin_icon',
-                'value' => null,
-            ],
-        ])
-        ->setField([
-            'id'         => 'ecosystem_sub_section_2_heading',
-            'section_id' => 'opt-text-subsection-ecosystem',
-            'type'       => 'text',
-            'label'      => __('Sub Section 2 Heading'),
-            'attributes' => [
-                'name'    => 'ecosystem_sub_section_2_heading',
-                'value'   => 'Earning Profits',
-                'options' => [
-                    'class'        => 'form-control',
-                    'data-counter' => 250,
-                ],
-            ],
-        ])
-        ->setField([
-            'id'         => 'ecosystem_sub_section_2_content',
-            'section_id' => 'opt-text-subsection-ecosystem',
-            'type'       => 'text',
-            'label'      => __('Sub Section 2 Content'),
-            'attributes' => [
-                'name'    => 'ecosystem_sub_section_2_content',
-                'value'   => "<b>XIN-Shop</b> supports local businesses in launching online stores and engaging in peer-to-peer commerce. <b>XIN-Game</b> offers an entertainment space where players can interact, co-create, and earn income from their content.",
-                'options' => [
-                    'class' => 'form-control',
-                    'rows'  => 4,
-                ],
-            ],
-        ])
-        // Sub Section 3
-        ->setField([
-            'id'         => 'ecosystem_sub_section_3_pin_icon',
-            'section_id' => 'opt-text-subsection-ecosystem',
-            'type'       => 'mediaImage',
-            'label'      => __('Sub Section 3 Pin Icon'),
-            'attributes' => [
-                'name'  => 'ecosystem_sub_section_3_pin_icon',
-                'value' => null,
-            ],
-        ])
-        ->setField([
-            'id'         => 'ecosystem_sub_section_3_heading',
-            'section_id' => 'opt-text-subsection-ecosystem',
-            'type'       => 'text',
-            'label'      => __('Sub Section 3 Heading'),
-            'attributes' => [
-                'name'    => 'ecosystem_sub_section_3_heading',
-                'value'   => 'Safe Payments',
-                'options' => [
-                    'class'        => 'form-control',
-                    'data-counter' => 250,
-                ],
-            ],
-        ])
-        ->setField([
-            'id'         => 'ecosystem_sub_section_3_content',
-            'section_id' => 'opt-text-subsection-ecosystem',
-            'type'       => 'text',
-            'label'      => __('Sub Section 3 Content'),
-            'attributes' => [
-                'name'    => 'ecosystem_sub_section_3_content',
-                'value'   => "<b>XIN-Fintech</b> ensures safe transactions, covering everything from payments to savings and credit. Powered by the <b>XIN token</b> system, users worldwide are connected through a transparent and trustworthy digital financial platform.",
-                'options' => [
-                    'class' => 'form-control',
-                    'rows'  => 4,
-                ],
-            ],
-        ])
-
-        // About Section - #about
-        ->setSection([
-            'title'      => __('5.Section Demand'),
-            'desc'       => __('About section settings for website'),
-            'id'         => 'opt-text-subsection-services',
-            'subsection' => true,
-            'icon'       => 'fa fa-cogs',
-        ])
-        ->setField([
-            'id'         => 'services_heading',
-            'section_id' => 'opt-text-subsection-services',
-            'type'       => 'text',
-            'label'      => __('About Heading'),
-            'attributes' => [
-                'name'    => 'services_heading',
-                'value'   => 'Why Choose XIN?',
-                'options' => [
-                    'class'        => 'form-control',
-                    'placeholder'  => __('Enter services heading'),
-                    'data-counter' => 250,
-                ],
-            ],
-        ])
-        ->setField([
-            'id'         => 'services_sub_heading',
-            'section_id' => 'opt-text-subsection-services',
-            'type'       => 'text',
-            'label'      => __('About Heading'),
-            'attributes' => [
-                'name'    => 'services_sub_heading',
-                'value'   => 'XIN needs to exist because it addresses key challenges in the travel industry and bridges the gap between tourism businesses and blockchain technology. Here are a few reasons why XIN is essential:',
-                'options' => [
-                    'class'        => 'form-control',
-                    'placeholder'  => __('Enter services sub heading'),
-                    'data-counter' => 250,
-                ],
-            ],
-        ])
-        ->setField([
-            'id'         => 'service_1_content',
-            'section_id' => 'opt-text-subsection-services',
-            'type'       => 'textarea',
-            'label'      => __('About Block 1 Content'),
-            'attributes' => [
-                'name'    => 'service_1_content',
-                'value'   => '<b>Cost Optimization & Global Payments</b> <br> XIN leverages blockchain to reduce transaction fees and enable fast, transparent international payments.',
-                'options' => [
-                    'class'        => 'form-control',
-                    'placeholder'  => __('Enter service block 1 content'),
-                    'data-counter' => 500,
-                    'rows'         => 3,
-                ],
-            ],
-        ])
-        ->setField([
-            'id'         => 'service_1_icon',
-            'section_id' => 'opt-text-subsection-services',
-            'type'       => 'mediaImage',
-            'label'      => __('About Block 1 Icon'),
-            'attributes' => [
-                'name'    => 'service_1_icon',
-                'value'   => null,
-            ],
-        ])
-        ->setField([
-            'id'         => 'service_2_content',
-            'section_id' => 'opt-text-subsection-services',
-            'type'       => 'textarea',
-            'label'      => __('About Block 2 Content'),
-            'attributes' => [
-                'name'    => 'service_2_content',
-                'value'   => '<b>Community Connection & Sharing</b><br> It creates opportunities for meaningful connections between travelers and locals, while sharing tourism generated value with the community.',
-                'options' => [
-                    'class'        => 'form-control',
-                    'placeholder'  => __('Enter service block 2 content'),
-                    'data-counter' => 500,
-                    'rows'         => 3,
-                ],
-            ],
-        ])
-        ->setField([
-            'id'         => 'service_2_icon',
-            'section_id' => 'opt-text-subsection-services',
-            'type'       => 'mediaImage',
-            'label'      => __('About Block 2 Icon'),
-            'attributes' => [
-                'name'    => 'service_2_icon',
-                'value'   => null,
-            ],
-        ])
-        ->setField([
-            'id'         => 'service_3_content',
-            'section_id' => 'opt-text-subsection-services',
-            'type'       => 'textarea',
-            'label'      => __('About Block 3 Content'),
-            'attributes' => [
-                'name'    => 'service_3_content',
-                'value'   => '<b>Transparency & Trust</b> <br>Blockchain technology reveals the true value of services, fostering trust between users and providers.',
-                'options' => [
-                    'class'        => 'form-control',
-                    'placeholder'  => __('Enter service block 3 content'),
-                    'data-counter' => 500,
-                    'rows'         => 3,
-                ],
-            ],
-        ])
-        ->setField([
-            'id'         => 'service_3_icon',
-            'section_id' => 'opt-text-subsection-services',
-            'type'       => 'mediaImage',
-            'label'      => __('About Block 3 Icon'),
-            'attributes' => [
-                'name'    => 'service_3_icon',
-                'value'   => null,
-            ],
-        ])
-        ->setField([
-            'id'         => 'service_4_content',
-            'section_id' => 'opt-text-subsection-services',
-            'type'       => 'textarea',
-            'label'      => __('About Block 4 Content'),
-            'attributes' => [
-                'name'    => 'service_4_content',
-                'value'   => '<b>Innovative & Engaging Technology</b> <br>NFTs and a reward system make travel more exciting, personalized, and memorable.',
-                'options' => [
-                    'class'        => 'form-control',
-                    'placeholder'  => __('Enter service block 4 content'),
-                    'data-counter' => 500,
-                    'rows'         => 3,
-                ],
-            ],
-        ])
-        ->setField([
-            'id'         => 'service_4_icon',
-            'section_id' => 'opt-text-subsection-services',
-            'type'       => 'mediaImage',
-            'label'      => __('Service Block 4 Icon'),
-            'attributes' => [
-                'name'    => 'service_4_icon',
-                'value'   => null,
-            ],
-        ])
-
-        // Tokenomics & Utility Section
-        ->setSection([
-            'title'      => __('6. Section Tokenomics & Utility'),
-            'desc'       => __('Tokenomics & Utility section settings'),
-            'id'         => 'opt-text-subsection-tokenomics',
-            'subsection' => true,
-            'icon'       => 'fa fa-coins',
-        ])
-        ->setField([
-            'id'         => 'tokenomics_main_heading',
-            'section_id' => 'opt-text-subsection-tokenomics',
-            'type'       => 'text',
-            'label'      => __('Main Heading'),
-            'attributes' => [
-                'name'    => 'tokenomics_main_heading',
-                'value'   => 'Tokenomics & Utility',
-                'options' => [
-                    'class'        => 'form-control',
-                    'data-counter' => 250,
-                ],
-            ],
-        ])
-        ->setField([
-            'id'         => 'tokenomics_sub_heading',
-            'section_id' => 'opt-text-subsection-tokenomics',
-            'type'       => 'text',
-            'label'      => __('Sub Heading'),
-            'attributes' => [
-                'name'    => 'tokenomics_sub_heading',
-                'value'   => '250% Mining Distribution - No Private Sale:',
-                'options' => [
-                    'class'        => 'form-control',
-                    'data-counter' => 250,
-                ],
-            ],
-        ])
-        ->setField([
-            'id'         => 'tokenomics_description',
-            'section_id' => 'opt-text-subsection-tokenomics',
-            'type'       => 'textarea',
-            'label'      => __('Description'),
-            'attributes' => [
-                'name'    => 'tokenomics_description',
-                'value'   => 'The XIN Token is distributed entirely through a transparent mining mechanism — <b>with no pre-sale and no allocations for funds or the team</b>. This forms the foundation for building a fair, open, and sustainable ecosystem.',
-                'options' => [
-                    'class' => 'form-control',
-                    'rows'  => 3,
-                ],
-            ],
-        ])
-        ->setField([
-            'id'         => 'tokenomics_image',
-            'section_id' => 'opt-text-subsection-tokenomics',
-            'type'       => 'mediaImage',
-            'label'      => __('Tokenomics Chart Image'),
-            'attributes' => [
-                'name'  => 'tokenomics_image',
-                'value' => null,
-            ],
-        ])
-        ->setField([
-            'id'         => 'tokenomics_mining_volume',
-            'section_id' => 'opt-text-subsection-tokenomics',
-            'type'       => 'text',
-            'label'      => __('Mining Volume'),
-            'attributes' => [
-                'name'    => 'tokenomics_mining_volume',
-                'value'   => '121,995,104 / 12,000,000,000',
-                'options' => [
-                    'class'        => 'form-control',
-                    'data-counter' => 250,
-                ],
-            ],
-        ])
-        // Utility Card 1
-        ->setField([
-            'id'         => 'tokenomics_utility_1_icon',
-            'section_id' => 'opt-text-subsection-tokenomics',
-            'type'       => 'mediaImage',
-            'label'      => __('Utility 1 Icon'),
-            'attributes' => [
-                'name'  => 'tokenomics_utility_1_icon',
-                'value' => null,
-            ],
-        ])
-        ->setField([
-            'id'         => 'tokenomics_utility_1_title',
-            'section_id' => 'opt-text-subsection-tokenomics',
-            'type'       => 'text',
-            'label'      => __('Utility 1 Title'),
-            'attributes' => [
-                'name'    => 'tokenomics_utility_1_title',
-                'value'   => 'Smart Contract',
-                'options' => [
-                    'class'        => 'form-control',
-                    'data-counter' => 250,
-                ],
-            ],
-        ])
-        ->setField([
-            'id'         => 'tokenomics_utility_1_link',
-            'section_id' => 'opt-text-subsection-tokenomics',
-            'type'       => 'text',
-            'label'      => __('Utility 1 Link'),
-            'attributes' => [
-                'name'    => 'tokenomics_utility_1_link',
-                'value'   => '#',
-                'options' => [
-                    'class'        => 'form-control',
-                    'data-counter' => 255,
-                ],
-            ],
-        ])
-        // Utility Card 2
-        ->setField([
-            'id'         => 'tokenomics_utility_2_icon',
-            'section_id' => 'opt-text-subsection-tokenomics',
-            'type'       => 'mediaImage',
-            'label'      => __('Utility 2 Icon'),
-            'attributes' => [
-                'name'  => 'tokenomics_utility_2_icon',
-                'value' => null,
-            ],
-        ])
-        ->setField([
-            'id'         => 'tokenomics_utility_2_title',
-            'section_id' => 'opt-text-subsection-tokenomics',
-            'type'       => 'text',
-            'label'      => __('Utility 2 Title'),
-            'attributes' => [
-                'name'    => 'tokenomics_utility_2_title',
-                'value'   => 'Token Audit',
-                'options' => [
-                    'class'        => 'form-control',
-                    'data-counter' => 250,
-                ],
-            ],
-        ])
-        ->setField([
-            'id'         => 'tokenomics_utility_2_link',
-            'section_id' => 'opt-text-subsection-tokenomics',
-            'type'       => 'text',
-            'label'      => __('Utility 2 Link'),
-            'attributes' => [
-                'name'    => 'tokenomics_utility_2_link',
-                'value'   => '#',
-                'options' => [
-                    'class'        => 'form-control',
-                    'data-counter' => 255,
-                ],
-            ],
-        ])
-        // Utility Card 3
-        ->setField([
-            'id'         => 'tokenomics_utility_3_icon',
-            'section_id' => 'opt-text-subsection-tokenomics',
-            'type'       => 'mediaImage',
-            'label'      => __('Utility 3 Icon'),
-            'attributes' => [
-                'name'  => 'tokenomics_utility_3_icon',
-                'value' => null,
-            ],
-        ])
-        ->setField([
-            'id'         => 'tokenomics_utility_3_title',
-            'section_id' => 'opt-text-subsection-tokenomics',
-            'type'       => 'text',
-            'label'      => __('Utility 3 Title'),
-            'attributes' => [
-                'name'    => 'tokenomics_utility_3_title',
-                'value'   => 'P2P Exchange',
-                'options' => [
-                    'class'        => 'form-control',
-                    'data-counter' => 250,
-                ],
-            ],
-        ])
-        ->setField([
-            'id'         => 'tokenomics_utility_3_link',
-            'section_id' => 'opt-text-subsection-tokenomics',
-            'type'       => 'text',
-            'label'      => __('Utility 3 Link'),
-            'attributes' => [
-                'name'    => 'tokenomics_utility_3_link',
-                'value'   => '#',
-                'options' => [
-                    'class'        => 'form-control',
-                    'data-counter' => 255,
-                ],
-            ],
-        ])
-        // Utility Card 4
-        ->setField([
-            'id'         => 'tokenomics_utility_4_icon',
-            'section_id' => 'opt-text-subsection-tokenomics',
-            'type'       => 'mediaImage',
-            'label'      => __('Utility 4 Icon'),
-            'attributes' => [
-                'name'  => 'tokenomics_utility_4_icon',
-                'value' => null,
-            ],
-        ])
-        ->setField([
-            'id'         => 'tokenomics_utility_4_title',
-            'section_id' => 'opt-text-subsection-tokenomics',
-            'type'       => 'text',
-            'label'      => __('Utility 4 Title'),
-            'attributes' => [
-                'name'    => 'tokenomics_utility_4_title',
-                'value'   => 'CEX',
-                'options' => [
-                    'class'        => 'form-control',
-                    'data-counter' => 250,
-                ],
-            ],
-        ])
-        // Utility Card 5
-        ->setField([
-            'id'         => 'tokenomics_utility_5_icon',
-            'section_id' => 'opt-text-subsection-tokenomics',
-            'type'       => 'mediaImage',
-            'label'      => __('Utility 5 Icon'),
-            'attributes' => [
-                'name'  => 'tokenomics_utility_5_icon',
-                'value' => null,
-            ],
-        ])
-        ->setField([
-            'id'         => 'tokenomics_utility_5_title',
-            'section_id' => 'opt-text-subsection-tokenomics',
-            'type'       => 'text',
-            'label'      => __('Utility 5 Title'),
-            'attributes' => [
-                'name'    => 'tokenomics_utility_5_title',
-                'value'   => 'DEX',
-                'options' => [
-                    'class'        => 'form-control',
-                    'data-counter' => 250,
-                ],
-            ],
-        ])
-
-        // Team Section - #team
-        ->setSection([
-            'title'      => __('7. Section Team Member'),
-            'desc'       => __('Team members settings for website'),
-            'id'         => 'opt-text-subsection-team',
-            'subsection' => true,
-            'icon'       => 'fa fa-users',
-        ])
-        ->setField([
-            'id'         => 'team_heading',
-            'section_id' => 'opt-text-subsection-team',
-            'type'       => 'text',
-            'label'      => __('Team Heading'),
-            'attributes' => [
-                'name'    => 'team_heading',
-                'value'   => 'Core Team',
-                'options' => [
-                    'class'        => 'form-control',
-                    'placeholder'  => __('Enter team heading'),
-                    'data-counter' => 250,
-                ],
-            ],
-        ])
-        // ->setField([
-        //     'id'         => 'team_sub_heading',
-        //     'section_id' => 'opt-text-subsection-team',
-        //     'type'       => 'text',
-        //     'label'      => __('Team Sub Heading'),
-        //     'attributes' => [
-        //         'name'    => 'team_sub_heading',
-        //         'value'   => 'XIN is not just an idea it is a project supported by leading names in Web3, marketing, and technology',
-        //         'options' => [
-        //             'class'        => 'form-control',
-        //             'placeholder'  => __('Enter team sub heading'),
-        //             'data-counter' => 250,
-        //         ],
-        //     ],
-        // ])
-        ->setField([
-            'id'         => 'team_1_image',
-            'section_id' => 'opt-text-subsection-team',
-            'type'       => 'mediaImage',
-            'label'      => __('Team Member 1 Image'),
-            'attributes' => [
-                'name'    => 'team_1_image',
-                'value'   => null,
-            ],
-        ])
-        ->setField([
-            'id'         => 'team_1_name',
-            'section_id' => 'opt-text-subsection-team',
-            'type'       => 'text',
-            'label'      => __('Team Member 1 Name'),
-            'attributes' => [
-                'name'    => 'team_1_name',
-                'value'   => 'AlexTurner',
-                'options' => [
-                    'class'        => 'form-control',
-                    'placeholder'  => __('Enter team member name'),
-                    'data-counter' => 250,
-                ],
-            ],
-        ])
-        ->setField([
-            'id'         => 'team_1_position',
-            'section_id' => 'opt-text-subsection-team',
-            'type'       => 'text',
-            'label'      => __('Team Member 1 Position'),
-            'attributes' => [
-                'name'    => 'team_1_position',
-                'value'   => 'CEO',
-                'options' => [
-                    'class'        => 'form-control',
-                    'placeholder'  => __('Enter team member position'),
-                    'data-counter' => 250,
-                ],
-            ],
-        ])
-        ->setField([
-            'id'         => 'team_1_number',
-            'section_id' => 'opt-text-subsection-team',
-            'type'       => 'text',
-            'label'      => __('Team Member 1 Number'),
-            'attributes' => [
-                'name'    => 'team_1_number',
-                'value'   => '01',
-                'options' => [
-                    'class'        => 'form-control',
-                    'placeholder'  => __('Enter team member number'),
-                    'data-counter' => 10,
-                ],
-            ],
-        ])
-        ->setField([
-            'id'         => 'team_1_bio',
-            'section_id' => 'opt-text-subsection-team',
-            'type'       => 'textarea',
-            'label'      => __('Team Member 1 Bio'),
-            'attributes' => [
-                'name'    => 'team_1_bio',
-                'value'   => 'Innovation is at the heart of what I do. With XINTEL, I am committed to building a comprehensive social ecosystem that shapes the future of decentralized finance.',
-                'options' => [
-                    'class'        => 'form-control',
-                    'placeholder'  => __('Enter team member bio'),
-                    'data-counter' => 1000,
-                    'rows'         => 5,
-                ],
-            ],
-        ])
-        ->setField([
-            'id'         => 'team_2_image',
-            'section_id' => 'opt-text-subsection-team',
-            'type'       => 'mediaImage',
-            'label'      => __('Team Member 2 Image'),
-            'attributes' => [
-                'name'    => 'team_2_image',
-                'value'   => null,
-            ],
-        ])
-        ->setField([
-            'id'         => 'team_2_name',
-            'section_id' => 'opt-text-subsection-team',
-            'type'       => 'text',
-            'label'      => __('Team Member 2 Name'),
-            'attributes' => [
-                'name'    => 'team_2_name',
-                'value'   => 'Kent Baktas',
-                'options' => [
-                    'class'        => 'form-control',
-                    'placeholder'  => __('Enter team member name'),
-                    'data-counter' => 250,
-                ],
-            ],
-        ])
-        ->setField([
-            'id'         => 'team_2_position',
-            'section_id' => 'opt-text-subsection-team',
-            'type'       => 'text',
-            'label'      => __('Team Member 2 Position'),
-            'attributes' => [
-                'name'    => 'team_2_position',
-                'value'   => 'CTO',
-                'options' => [
-                    'class'        => 'form-control',
-                    'placeholder'  => __('Enter team member position'),
-                    'data-counter' => 250,
-                ],
-            ],
-        ])
-        ->setField([
-            'id'         => 'team_2_number',
-            'section_id' => 'opt-text-subsection-team',
-            'type'       => 'text',
-            'label'      => __('Team Member 2 Number'),
-            'attributes' => [
-                'name'    => 'team_2_number',
-                'value'   => '02',
-                'options' => [
-                    'class'        => 'form-control',
-                    'placeholder'  => __('Enter team member number'),
-                    'data-counter' => 10,
-                ],
-            ],
-        ])
-        ->setField([
-            'id'         => 'team_2_bio',
-            'section_id' => 'opt-text-subsection-team',
-            'type'       => 'textarea',
-            'label'      => __('Team Member 2 Bio'),
-            'attributes' => [
-                'name'    => 'team_2_bio',
-                'value'   => 'I believe that technology must always
-evolve. With XIN, we provide sustainable
-and innovative blockchain solutions.',
-                'options' => [
-                    'class'        => 'form-control',
-                    'placeholder'  => __('Enter team member bio'),
-                    'data-counter' => 1000,
-                    'rows'         => 5,
-                ],
-            ],
-        ])
-        ->setField([
-            'id'         => 'team_3_image',
-            'section_id' => 'opt-text-subsection-team',
-            'type'       => 'mediaImage',
-            'label'      => __('Team Member 3 Image'),
-            'attributes' => [
-                'name'    => 'team_3_image',
-                'value'   => null,
-            ],
-        ])
-        ->setField([
-            'id'         => 'team_3_name',
-            'section_id' => 'opt-text-subsection-team',
-            'type'       => 'text',
-            'label'      => __('Team Member 3 Name'),
-            'attributes' => [
-                'name'    => 'team_3_name',
-                'value'   => 'Dusan Zica',
-                'options' => [
-                    'class'        => 'form-control',
-                    'placeholder'  => __('Enter team member name'),
-                    'data-counter' => 250,
-                ],
-            ],
-        ])
-        ->setField([
-            'id'         => 'team_3_position',
-            'section_id' => 'opt-text-subsection-team',
-            'type'       => 'text',
-            'label'      => __('Team Member 3 Position'),
-            'attributes' => [
-                'name'    => 'team_3_position',
-                'value'   => 'CMO',
-                'options' => [
-                    'class'        => 'form-control',
-                    'placeholder'  => __('Enter team member position'),
-                    'data-counter' => 250,
-                ],
-            ],
-        ])
-        ->setField([
-            'id'         => 'team_3_number',
-            'section_id' => 'opt-text-subsection-team',
-            'type'       => 'text',
-            'label'      => __('Team Member 3 Number'),
-            'attributes' => [
-                'name'    => 'team_3_number',
-                'value'   => '03',
-                'options' => [
-                    'class'        => 'form-control',
-                    'placeholder'  => __('Enter team member number'),
-                    'data-counter' => 10,
-                ],
-            ],
-        ])
-        ->setField([
-            'id'         => 'team_3_bio',
-            'section_id' => 'opt-text-subsection-team',
-            'type'       => 'textarea',
-            'label'      => __('Team Member 3 Bio'),
-            'attributes' => [
-                'name'    => 'team_3_bio',
-                'value'   => "I don't just tell stories, I build worlds. XIN is where the community comes together to shape the future of Web3.",
-                'options' => [
-                    'class'        => 'form-control',
-                    'placeholder'  => __('Enter team member bio'),
-                    'data-counter' => 1000,
-                    'rows'         => 5,
-                ],
-            ],
-        ])
-        // Partner Section - #partner
-        ->setSection([
-            'title'      => __('8. Testimonials | Partners | Backers'),
-            'desc'       => __('Partner settings for website'),
-            'id'         => 'opt-text-subsection-partner',
-            'subsection' => true,
-            'icon'       => 'fa fa-users',
-        ])
-        ->setField([
-            'id'         => 'partner_heading8',
-            'section_id' => 'opt-text-subsection-partner',
-            'type'       => 'text',
-            'label'      => __('Partner Heading'),
-            'attributes' => [
-                'name'    => 'partner_heading8',
-                'value'   => 'Working Alongside Trusted Partners',
-                'options' => [
-                    'class'        => 'form-control',
-                    'placeholder'  => __('Enter partner heading'),
-                    'data-counter' => 250,
-                ],
-            ],
-        ])
-        ->setField([
-            'id'         => 'partner_sub_heading8',
-            'section_id' => 'opt-text-subsection-partner',
-            'type'       => 'textarea',
-            'label'      => __('Partner Sub Heading'),
-            'attributes' => [
-                'name'    => 'partner_sub_heading8',
-                'value'   => "XIN is not just an idea – it is a project supported by leading names in Web3, marketing, and technology:",
-                'options' => [
-                    'class'        => 'form-control',
-                    'placeholder'  => __('Enter partner sub heading'),
-                    'data-counter' => 1000,
-                    'rows'         => 5,
-                ],
-            ],
-        ])
-        ->setField([
-            'id'         => 'partner_1_image',
-            'section_id' => 'opt-text-subsection-partner',
-            'type'       => 'mediaImage',
-            'label'      => __('Partner 1 Image'),
-            'attributes' => [
-                'name'    => 'partner_1_image',
-                'value'   => null,
-            ],
-        ])
-        ->setField([
-            'id'         => 'partner_1_name',
-            'section_id' => 'opt-text-subsection-partner',
-            'type'       => 'text',
-            'label'      => __('Partner 1 Name'),
-            'attributes' => [
-                'name'    => 'partner_1_name',
-                'value'   => '[Partner Web3 Name]',
-                'options' => [
-                    'class'        => 'form-control',
-                    'placeholder'  => __('Enter partner name'),
-                    'data-counter' => 250,
-                ],
-            ],
-        ])
-        ->setField([
-            'id'         => 'partner_1_position',
-            'section_id' => 'opt-text-subsection-partner',
-            'type'       => 'text',
-            'label'      => __('Partner 1 Position'),
-            'attributes' => [
-                'name'    => 'partner_1_position',
-                'value'   => 'Blockchain integration & smart contract security',
-                'options' => [
-                    'class'        => 'form-control',
-                    'placeholder'  => __('Enter partner position'),
-                    'data-counter' => 250,
-                ],
-            ],
-        ])
-        ->setField([
-            'id'         => 'partner_2_image',
-            'section_id' => 'opt-text-subsection-partner',
-            'type'       => 'mediaImage',
-            'label'      => __('Partner 2 Image'),
-            'attributes' => [
-                'name'    => 'partner_2_image',
-                'value'   => null,
-            ],
-        ])
-        ->setField([
-            'id'         => 'partner_2_name',
-            'section_id' => 'opt-text-subsection-partner',
-            'type'       => 'text',
-            'label'      => __('Partner 2 Name'),
-            'attributes' => [
-                'name'    => 'partner_2_name',
-                'value'   => '[Marketing Agency Name]',
-                'options' => [
-                    'class'        => 'form-control',
-                    'placeholder'  => __('Enter partner name'),
-                    'data-counter' => 250,
-                ],
-            ],
-        ])
-        ->setField([
-            'id'         => 'partner_2_position',
-            'section_id' => 'opt-text-subsection-partner',
-            'type'       => 'text',
-            'label'      => __('Partner 2 Position'),
-            'attributes' => [
-                'name'    => 'partner_2_position',
-                'value'   => 'Go to market strategy for Southeast Asia and the global market.',
-                'options' => [
-                    'class'        => 'form-control',
-                    'placeholder'  => __('Enter partner position'),
-                    'data-counter' => 250,
-                ],
-            ],
-        ])
-        ->setField([
-            'id'         => 'partner_3_image',
-            'section_id' => 'opt-text-subsection-partner',
-            'type'       => 'mediaImage',
-            'label'      => __('Partner 3 Image'),
-            'attributes' => [
-                'name'    => 'partner_3_image',
-                'value'   => null,
-            ],
-        ])
-        ->setField([
-            'id'         => 'partner_3_name',
-            'section_id' => 'opt-text-subsection-partner',
-            'type'       => 'text',
-            'label'      => __('Partner 3 Name'),
-            'attributes' => [
-                'name'    => 'partner_3_name',
-                'value'   => '[Tech Partner Name]',
-                'options' => [
-                    'class'        => 'form-control',
-                    'placeholder'  => __('Enter partner name'),
-                    'data-counter' => 250,
-                ],
-            ],
-        ])
-        ->setField([
-            'id'         => 'partner_3_position',
-            'section_id' => 'opt-text-subsection-partner',
-            'type'       => 'text',
-            'label'      => __('Partner 3 Position'),
-            'attributes' => [
-                'name'    => 'partner_3_position',
-                'value'   => 'Technical infrastructure & cross platform expansion.',
-                'options' => [
-                    'class'        => 'form-control',
-                    'placeholder'  => __('Enter partner position'),
-                    'data-counter' => 250,
-                ],
-            ],
-        ])
-        ->setField([
-            'id'         => 'partner_quote',
-            'section_id' => 'opt-text-subsection-partner',
-            'type'       => 'text',
-            'label'      => __('Partner Quote'),
-            'attributes' => [
-                'name'    => 'partner_quote',
-                'value'   => '“XIN represents a unique approach, connecting content, travel, and a transparent tokenomics model. This is a model we believe will explode in Web3.” — <b>[VC/Investor Name]</b>, General Partner – <b>[Fund Name]</b>.',
-                'options' => [
-                    'class'        => 'form-control',
-                    'placeholder'  => __('Enter partner quote'),
-                    'data-counter' => 250,
-                ],
-            ],
-        ])
-
-
-        // Journey Section - #journey
-        ->setSection([
-            'title'      => __('9. Section Roadmap'),
-            'desc'       => __('Journey/Roadmap settings for website'),
-            'id'         => 'opt-text-subsection-journey',
-            'subsection' => true,
-            'icon'       => 'fa fa-road',
-        ])
-        ->setField([
-            'id'         => 'journey_heading',
-            'section_id' => 'opt-text-subsection-journey',
-            'type'       => 'text',
-            'label'      => __('Journey Heading'),
-            'attributes' => [
-                'name'    => 'journey_heading',
-                'value'   => 'Roadmap',
-                'options' => [
-                    'class'        => 'form-control',
-                    'placeholder'  => __('Enter journey heading'),
-                    'data-counter' => 250,
-                ],
-            ],
-        ])
-        ->setField([
-            'id'         => 'journey_1_title',
-            'section_id' => 'opt-text-subsection-journey',
-            'type'       => 'text',
-            'label'      => __('Journey 1 Title'),
-            'attributes' => [
-                'name'    => 'journey_1_title',
-                'value'   => 'Q4, 2024',
-                'options' => [
-                    'class'        => 'form-control',
-                    'placeholder'  => __('Enter journey title'),
-                    'data-counter' => 250,
-                ],
-            ],
-        ])
-        ->setField([
-            'id'         => 'journey_1_content',
-            'section_id' => 'opt-text-subsection-journey',
-            'type'       => 'textarea',
-            'label'      => __('Journey 1 Content'),
-            'attributes' => [
-                'name'    => 'journey_1_content',
-                'value'   => "<ul>
-                                        <li>Launch eSIM and data packages for XIN: Expand country and region options.</li>
-                                        <li>Introduce travel guide feature and tour booking setup.</li>
-                                        <li>Activate check-in reward feature within the app.</li>
-                                        <li>Set up for 20-30 countries.</li>
-                                        <li>Connect with 250 brands and 5,000 local partners.</li>
-                                        <li>Connect Xintel with 6 countries: Thailand, Singapore, Malaysia, Indonesia, Philippines, and South Korea.</li>
-                                        <li>Organize XIN app and travel experience event in Thailand.</li>
-                                        <li>Goal: 250,000 users for Q4.</li>
-                                    </ul>",
-                'options' => [
-                    'class'        => 'form-control',
-                    'placeholder'  => __('Enter journey content'),
-                    'data-counter' => 1000,
-                    'rows'         => 6,
-                ],
-            ],
-        ])
-        ->setField([
-            'id'         => 'journey_2_title',
-            'section_id' => 'opt-text-subsection-journey',
-            'type'       => 'text',
-            'label'      => __('Journey 2 Title'),
-            'attributes' => [
-                'name'    => 'journey_2_title',
-                'value'   => 'Q1, 2025',
-                'options' => [
-                    'class'        => 'form-control',
-                    'placeholder'  => __('Enter journey title'),
-                    'data-counter' => 250,
-                ],
-            ],
-        ])
-        ->setField([
-            'id'         => 'journey_2_content',
-            'section_id' => 'opt-text-subsection-journey',
-            'type'       => 'textarea',
-            'label'      => __('Journey 2 Content'),
-            'attributes' => [
-                'name'    => 'journey_2_content',
-                'value'   => "<ul>
-                                        <li>Integrate multi platform payment gateway and international payments.</li>
-                                        <li>Integrate booking for global trips, restaurants, hotels, and cafes.</li>
-                                        <li>Deploy KOLs for live streaming within the app.</li>
-                                        <li>Set up for 20-30 countries.</li>
-                                        <li>Connect with 200 brands and 10,000 local partners.</li>
-                                        <li>Connect Xintel with 6 countries.</li>
-                                        <li>Organize XIN app and travel experience event in Singapore.</li>
-                                        <li>Goal: 500,000 users for Q1.</li>
-                                    </ul>",
-                'options' => [
-                    'class'        => 'form-control',
-                    'placeholder'  => __('Enter journey content'),
-                    'data-counter' => 1000,
-                    'rows'         => 6,
-                ],
-            ],
-        ])
-        ->setField([
-            'id'         => 'journey_3_title',
-            'section_id' => 'opt-text-subsection-journey',
-            'type'       => 'text',
-            'label'      => __('Journey 3 Title'),
-            'attributes' => [
-                'name'    => 'journey_3_title',
-                'value'   => 'Q2, 2025',
-                'options' => [
-                    'class'        => 'form-control',
-                    'placeholder'  => __('Enter journey title'),
-                    'data-counter' => 250,
-                ],
-            ],
-        ])
-        ->setField([
-            'id'         => 'journey_3_content',
-            'section_id' => 'opt-text-subsection-journey',
-            'type'       => 'textarea',
-            'label'      => __('Journey 3 Content'),
-            'attributes' => [
-                'name'    => 'journey_3_content',
-                'value'   => "<ul>
-                                        <li>Launch GameFi Hub: Support blockchain games and related activities.</li>
-                                        <li>Set up for 20-30 countries.</li>
-                                        <li>Connect with 300 brands and 15,000 local partners.</li>
-                                        <li>Connect Xintel with 6 countries.</li>
-                                        <li>Organize XIN app and travel experience event in Indonesia.</li>
-                                        <li>Goal: 1 million users for Q2.</li>
-                                    </ul>",
-                'options' => [
-                    'class'        => 'form-control',
-                    'placeholder'  => __('Enter journey content'),
-                    'data-counter' => 1000,
-                    'rows'         => 6,
-                ],
-            ],
-        ])
-        ->setField([
-            'id'         => 'journey_4_title',
-            'section_id' => 'opt-text-subsection-journey',
-            'type'       => 'text',
-            'label'      => __('Journey 4 Title'),
-            'attributes' => [
-                'name'    => 'journey_4_title',
-                'value'   => 'Q3, 2025',
-                'options' => [
-                    'class'        => 'form-control',
-                    'placeholder'  => __('Enter journey title'),
-                    'data-counter' => 250,
-                ],
-            ],
-        ])
-        ->setField([
-            'id'         => 'journey_4_content',
-            'section_id' => 'opt-text-subsection-journey',
-            'type'       => 'textarea',
-            'label'      => __('Journey 4 Content'),
-            'attributes' => [
-                'name'    => 'journey_4_content',
-                'value'   => "<ul>
-                                        <li>Launch Only Fan feature.</li>
-                                        <li>List XIN token on DEX and CEX exchanges.</li>
-                                        <li>Set up for 20-30 countries.</li>
-                                        <li>Connect with 400 brands and 20,000 local partners.</li>
-                                        <li>Connect Xintel with 6 countries.</li>
-                                        <li>Organize XIN app and travel experience event in Indonesia.</li>
-                                        <li>Goal: 2 million users for Q3.</li>
-                                    </ul>",
-                'options' => [
-                    'class'        => 'form-control',
-                    'placeholder'  => __('Enter journey content'),
-                    'data-counter' => 1000,
-                    'rows'         => 6,
-                ],
-            ],
-        ])
-        ->setField([
-            'id'         => 'journey_5_title',
-            'section_id' => 'opt-text-subsection-journey',
-            'type'       => 'text',
-            'label'      => __('Journey 5 Title'),
-            'attributes' => [
-                'name'    => 'journey_5_title',
-                'value'   => 'Q4, 2025',
-                'options' => [
-                    'class'        => 'form-control',
-                    'placeholder'  => __('Enter journey title'),
-                    'data-counter' => 250,
-                ],
-            ],
-        ])
-        ->setField([
-            'id'         => 'journey_5_content',
-            'section_id' => 'opt-text-subsection-journey',
-            'type'       => 'textarea',
-            'label'      => __('Journey 5 Content'),
-            'attributes' => [
-                'name'    => 'journey_5_content',
-                'value'   => "<ul>
-                                        <li>Launch Gateway Payment: Support international transactions and multi-platform services.</li>
-                                        <li>Release XIN chain and applications.</li>
-                                        <li>Set up for 20-30 countries.</li>
-                                        <li>Connect with 500 brands and 25,000 local partners.</li>
-                                        <li>Connect Xintel with 6 countries.</li>
-                                        <li>Organize XIN app and travel experience event in South Korea.</li>
-                                        <li>Goal: 3 million users for Q4.</li>
-                                    </ul>",
-                'options' => [
-                    'class'        => 'form-control',
-                    'placeholder'  => __('Enter journey content'),
-                    'data-counter' => 1000,
-                    'rows'         => 6,
-                ],
-            ],
-        ])
-
-        // Investor Documentation Section
-        ->setSection([
-            'title'      => __('10. Section Document'),
-            'desc'       => __('Investor Documentation section settings'),
-            'id'         => 'opt-text-subsection-investor-docs',
-            'subsection' => true,
-            'icon'       => 'fa fa-file-contract',
-        ])
-        ->setField([
-            'id'         => 'investor_docs_title',
-            'section_id' => 'opt-text-subsection-investor-docs',
-            'type'       => 'text',
-            'label'      => __('Section Title'),
-            'attributes' => [
-                'name'    => 'investor_docs_title',
-                'value'   => 'Investor Documentation',
-                'options' => [
-                    'class'        => 'form-control',
-                    'data-counter' => 250,
-                ],
-            ],
-        ])
-        ->setField([
-            'id'         => 'investor_docs_description',
-            'section_id' => 'opt-text-subsection-investor-docs',
-            'type'       => 'textarea',
-            'label'      => __('Section Description'),
-            'attributes' => [
-                'name'    => 'investor_docs_description',
-                'value'   => 'We are committed to delivering a transparent, robust ecosystem that is ready for global expansion. All information for investors is thoroughly prepared, clear, and verifiable.',
-                'options' => [
-                    'class' => 'form-control',
-                    'rows'  => 3,
-                ],
-            ],
-        ])
-        // Document 1
-
-        ->setField([
-            'id'         => 'investor_docs_item_1_title',
-            'section_id' => 'opt-text-subsection-investor-docs',
-            'type'       => 'text',
-            'label'      => __('Document 1 Title'),
-            'attributes' => [
-                'name'    => 'investor_docs_item_1_title',
-                'value'   => 'Pitch Deck',
-                'options' => [
-                    'class'        => 'form-control',
-                    'data-counter' => 250,
-                ],
-            ],
-        ])
-        ->setField([
-            'id'         => 'investor_docs_item_1_description',
-            'section_id' => 'opt-text-subsection-investor-docs',
-            'type'       => 'text',
-            'label'      => __('Document 1 Description'),
-            'attributes' => [
-                'name'    => 'investor_docs_item_1_description',
-                'value'   => 'Project Overview, Operational Model, and Growth Potential.',
-                'options' => [
-                    'class'        => 'form-control',
-                    'data-counter' => 255,
-                ],
-            ],
-        ])
-        ->setField([
-            'id'         => 'investor_docs_item_1_button_text',
-            'section_id' => 'opt-text-subsection-investor-docs',
-            'type'       => 'text',
-            'label'      => __('Document 1 button text'),
-            'attributes' => [
-                'name'    => 'investor_docs_item_1_button_text',
-                'value'   => 'Download PDF',
-                'options' => [
-                    'class'        => 'form-control',
-                    'data-counter' => 50,
-                ],
-            ],
-        ])
-        ->setField([
-            'id'         => 'investor_docs_item_1_link',
-            'section_id' => 'opt-text-subsection-investor-docs',
-            'type'       => 'text',
-            'label'      => __('Document 1 Link'),
-            'attributes' => [
-                'name'    => 'investor_docs_item_1_link',
-                'value'   => '#',
-                'options' => [
-                    'class'        => 'form-control',
-                    'data-counter' => 255,
-                ],
-            ],
-        ])
-        // Document 2
-        ->setField([
-            'id'         => 'investor_docs_item_2_title',
-            'section_id' => 'opt-text-subsection-investor-docs',
-            'type'       => 'text',
-            'label'      => __('Document 2 Title'),
-            'attributes' => [
-                'name'    => 'investor_docs_item_2_title',
-                'value'   => 'Whitepaper',
-                'options' => [
-                    'class'        => 'form-control',
-                    'data-counter' => 250,
-                ],
-            ],
-        ])
-        ->setField([
-            'id'         => 'investor_docs_item_2_description',
-            'section_id' => 'opt-text-subsection-investor-docs',
-            'type'       => 'text',
-            'label'      => __('Document 2 Description'),
-            'attributes' => [
-                'name'    => 'investor_docs_item_2_description',
-                'value'   => 'Product Architecture, Roadmap, and Detailed Development Logic.',
-                'options' => [
-                    'class'        => 'form-control',
-                    'data-counter' => 255,
-                ],
-            ],
-        ])
-        ->setField([
-            'id'         => 'investor_docs_item_2_button_text',
-            'section_id' => 'opt-text-subsection-investor-docs',
-            'type'       => 'text',
-            'label'      => __('Document 2 button text'),
-            'attributes' => [
-                'name'    => 'investor_docs_item_2_button_text',
-                'value'   => 'Read now',
-                'options' => [
-                    'class'        => 'form-control',
-                    'data-counter' => 50,
-                ],
-            ],
-        ])
-        ->setField([
-            'id'         => 'investor_docs_item_2_link',
-            'section_id' => 'opt-text-subsection-investor-docs',
-            'type'       => 'text',
-            'label'      => __('Document 2 Link'),
-            'attributes' => [
-                'name'    => 'investor_docs_item_2_link',
-                'value'   => '#',
-                'options' => [
-                    'class'        => 'form-control',
-                    'data-counter' => 255,
-                ],
-            ],
-        ])
-
-        // Document 3
-        ->setField([
-            'id'         => 'investor_docs_item_3_title',
-            'section_id' => 'opt-text-subsection-investor-docs',
-            'type'       => 'text',
-            'label'      => __('Document 3 Title'),
-            'attributes' => [
-                'name'    => 'investor_docs_item_3_title',
-                'value'   => 'Audit Report',
-                'options' => [
-                    'class'        => 'form-control',
-                    'data-counter' => 250,
-                ],
-            ],
-        ])
-        ->setField([
-            'id'         => 'investor_docs_item_3_description',
-            'section_id' => 'opt-text-subsection-investor-docs',
-            'type'       => 'text',
-            'label'      => __('Document 3 Description'),
-            'attributes' => [
-                'name'    => 'investor_docs_item_3_description',
-                'value'   => 'Smart contract security audited by a third party.',
-                'options' => [
-                    'class'        => 'form-control',
-                    'data-counter' => 255,
-                ],
-            ],
-        ])
-        ->setField([
-            'id'         => 'investor_docs_item_3_button_text',
-            'section_id' => 'opt-text-subsection-investor-docs',
-            'type'       => 'text',
-            'label'      => __('Document 3 button text'),
-            'attributes' => [
-                'name'    => 'investor_docs_item_3_button_text',
-                'value'   => 'Details',
-                'options' => [
-                    'class'        => 'form-control',
-                    'data-counter' => 50,
-                ],
-            ],
-        ])
-        ->setField([
-            'id'         => 'investor_docs_item_3_link',
-            'section_id' => 'opt-text-subsection-investor-docs',
-            'type'       => 'text',
-            'label'      => __('Document 3 Link'),
-            'attributes' => [
-                'name'    => 'investor_docs_item_3_link',
-                'value'   => '#',
-                'options' => [
-                    'class'        => 'form-control',
-                    'data-counter' => 255,
-                ],
-            ],
-        ])
-        // Document 4
-        ->setField([
-            'id'         => 'investor_docs_item_4_title',
-            'section_id' => 'opt-text-subsection-investor-docs',
-            'type'       => 'text',
-            'label'      => __('Document 4 Title'),
-            'attributes' => [
-                'name'    => 'investor_docs_item_4_title',
-                'value'   => 'Tokenomics details',
-                'options' => [
-                    'class'        => 'form-control',
-                    'data-counter' => 250,
-                ],
-            ],
-        ])
-        ->setField([
-            'id'         => 'investor_docs_item_4_description',
-            'section_id' => 'opt-text-subsection-investor-docs',
-            'type'       => 'text',
-            'label'      => __('Document 4 Description'),
-            'attributes' => [
-                'name'    => 'investor_docs_item_4_description',
-                'value'   => 'Distribution Mechanism, Utility, and Token Value Maintenance Strategy.',
-                'options' => [
-                    'class'        => 'form-control',
-                    'data-counter' => 255,
-                ],
-            ],
-        ])
-        ->setField([
-            'id'         => 'investor_docs_item_4_button_text',
-            'section_id' => 'opt-text-subsection-investor-docs',
-            'type'       => 'text',
-            'label'      => __('Document 4 button text'),
-            'attributes' => [
-                'name'    => 'investor_docs_item_4_button_text',
-                'value'   => 'Explore more',
-                'options' => [
-                    'class'        => 'form-control',
-                    'data-counter' => 50,
-                ],
-            ],
-        ])
-        ->setField([
-            'id'         => 'investor_docs_item_4_link',
-            'section_id' => 'opt-text-subsection-investor-docs',
-            'type'       => 'text',
-            'label'      => __('Document 4 Link'),
-            'attributes' => [
-                'name'    => 'investor_docs_item_4_link',
-                'value'   => '#',
-                'options' => [
-                    'class'        => 'form-control',
-                    'data-counter' => 255,
-                ],
-            ],
-        ])
-        // Document 5
-        ->setField([
-            'id'         => 'investor_docs_item_5_title',
-            'section_id' => 'opt-text-subsection-investor-docs',
-            'type'       => 'text',
-            'label'      => __('Document 5 Title'),
-            'attributes' => [
-                'name'    => 'investor_docs_item_5_title',
-                'value'   => 'Call with Founders / Investor Team.',
-                'options' => [
-                    'class'        => 'form-control',
-                    'data-counter' => 250,
-                ],
-            ],
-        ])
-        ->setField([
-            'id'         => 'investor_docs_item_5_description',
-            'section_id' => 'opt-text-subsection-investor-docs',
-            'type'       => 'text',
-            'label'      => __('Document 5 Description'),
-            'attributes' => [
-                'name'    => 'investor_docs_item_5_description',
-                'value'   => '',
-                'options' => [
-                    'class'        => 'form-control',
-                    'data-counter' => 255,
-                ],
-            ],
-        ])
-        ->setField([
-            'id'         => 'investor_docs_item_5_button_text',
-            'section_id' => 'opt-text-subsection-investor-docs',
-            'type'       => 'text',
-            'label'      => __('Document 5 button text'),
-            'attributes' => [
-                'name'    => 'investor_docs_item_5_button_text',
-                'value'   => 'Book now',
-                'options' => [
-                    'class'        => 'form-control',
-                    'data-counter' => 50,
-                ],
-            ],
-        ])
-        ->setField([
-            'id'         => 'investor_docs_item_5_link',
-            'section_id' => 'opt-text-subsection-investor-docs',
-            'type'       => 'text',
-            'label'      => __('Document 5 Link'),
-            'attributes' => [
-                'name'    => 'investor_docs_item_5_link',
-                'value'   => '#',
-                'options' => [
-                    'class'        => 'form-control',
-                    'data-counter' => 255,
-                ],
-            ],
-        ])
-
-        // Stats Section
-        ->setSection([
-            'title'      => __('11. Section Xin In Action'),
-            'desc'       => __('Statistics and download settings for website'),
-            'id'         => 'opt-text-subsection-stats',
-            'subsection' => true,
-            'icon'       => 'fa fa-chart-bar',
-        ])
-        ->setField([
-            'id'         => 'stats_heading',
-            'section_id' => 'opt-text-subsection-stats',
-            'type'       => 'text',
-            'label'      => __('Stats Heading'),
-            'attributes' => [
-                'name'    => 'stats_heading',
-                'value'   => 'Real Data',
-                'options' => [
-                    'class'        => 'form-control',
-                    'placeholder'  => __('Enter stats heading'),
-                    'data-counter' => 250,
-                ],
-            ],
-        ])
-        ->setField([
-            'id'         => 'stats_sub_heading',
-            'section_id' => 'opt-text-subsection-stats',
-            'type'       => 'text',
-            'label'      => __('Stats Sub Heading'),
-            'attributes' => [
-                'name'    => 'stats_sub_heading',
-                'value'   => "The project is not just an idea – XIN is growing stronger every day with a global community of users who engage, share, and earn rewards.",
-                'options' => [
-                    'class'        => 'form-control',
-                    'placeholder'  => __('Enter stats sub heading'),
-                    'data-counter' => 250,
-                ],
-            ],
-        ])
-        ->setField([
-            'id'         => 'stats_counter_1_number',
-            'section_id' => 'opt-text-subsection-stats',
-            'type'       => 'text',
-            'label'      => __('Counter 1 Number'),
-            'attributes' => [
-                'name'    => 'stats_counter_1_number',
-                'value'   => '1245000',
-                'options' => [
-                    'class'        => 'form-control',
-                    'placeholder'  => __('Enter counter number'),
-                    'data-counter' => 10,
-                ],
-            ],
-        ])
-        ->setField([
-            'id'         => 'stats_counter_1_label',
-            'section_id' => 'opt-text-subsection-stats',
-            'type'       => 'text',
-            'label'      => __('Counter 1 Label'),
-            'attributes' => [
-                'name'    => 'stats_counter_1_label',
-                'value'   => 'Registered Users',
-                'options' => [
-                    'class'        => 'form-control',
-                    'placeholder'  => __('Enter counter label'),
-                    'data-counter' => 50,
-                ],
-            ],
-        ])
-        ->setField([
-            'id'         => 'stats_counter_2_number',
-            'section_id' => 'opt-text-subsection-stats',
-            'type'       => 'text',
-            'label'      => __('Counter 2 Number'),
-            'attributes' => [
-                'name'    => 'stats_counter_2_number',
-                'value'   => '25',
-                'options' => [
-                    'class'        => 'form-control',
-                    'placeholder'  => __('Enter counter number'),
-                    'data-counter' => 10,
-                ],
-            ],
-        ])
-        ->setField([
-            'id'         => 'stats_counter_2_label',
-            'section_id' => 'opt-text-subsection-stats',
-            'type'       => 'text',
-            'label'      => __('Counter 2 Label'),
-            'attributes' => [
-                'name'    => 'stats_counter_2_label',
-                'value'   => 'App Downloads',
-                'options' => [
-                    'class'        => 'form-control',
-                    'placeholder'  => __('Enter counter label'),
-                    'data-counter' => 50,
-                ],
-            ],
-        ])
-        ->setField([
-            'id'         => 'stats_counter_3_number',
-            'section_id' => 'opt-text-subsection-stats',
-            'type'       => 'text',
-            'label'      => __('Counter 3 Number'),
-            'attributes' => [
-                'name'    => 'stats_counter_3_number',
-                'value'   => '210000',
-                'options' => [
-                    'class'        => 'form-control',
-                    'placeholder'  => __('Enter counter number'),
-                    'data-counter' => 10,
-                ],
-            ],
-        ])
-        ->setField([
-            'id'         => 'stats_counter_3_label',
-            'section_id' => 'opt-text-subsection-stats',
-            'type'       => 'text',
-            'label'      => __('Counter 3 Label'),
-            'attributes' => [
-                'name'    => 'stats_counter_3_label',
-                'value'   => 'Monthly Active Users (MAU)',
-                'options' => [
-                    'class'        => 'form-control',
-                    'placeholder'  => __('Enter counter label'),
-                    'data-counter' => 50,
-                ],
-            ],
-        ])
-        ->setField([
-            'id'         => 'stats_counter_4_number',
-            'section_id' => 'opt-text-subsection-stats',
-            'type'       => 'text',
-            'label'      => __('Counter 4 Number'),
-            'attributes' => [
-                'name'    => 'stats_counter_4_number',
-                'value'   => '92400000',
-                'options' => [
-                    'class'        => 'form-control',
-                    'placeholder'  => __('Enter counter number'),
-                    'data-counter' => 10,
-                ],
-            ],
-        ])
-        ->setField([
-            'id'         => 'stats_counter_4_label',
-            'section_id' => 'opt-text-subsection-stats',
-            'type'       => 'text',
-            'label'      => __('Counter 4 Label'),
-            'attributes' => [
-                'name'    => 'stats_counter_4_label',
-                'value'   => 'XIN Token has been mined',
-                'options' => [
-                    'class'        => 'form-control',
-                    'placeholder'  => __('Enter counter label'),
-                    'data-counter' => 50,
-                ],
-            ],
-        ])
-        ->setField([
-            'id'         => 'stats_counter_5_number',
-            'section_id' => 'opt-text-subsection-stats',
-            'type'       => 'text',
-            'label'      => __('Counter 5 Number'),
-            'attributes' => [
-                'name'    => 'stats_counter_5_number',
-                'value'   => '30',
-                'options' => [
-                    'class'        => 'form-control',
-                    'placeholder'  => __('Enter counter number'),
-                    'data-counter' => 10,
-                ],
-            ],
-        ])
-        ->setField([
-            'id'         => 'stats_counter_5_label',
-            'section_id' => 'opt-text-subsection-stats',
-            'type'       => 'text',
-            'label'      => __('Counter 5 Label'),
-            'attributes' => [
-                'name'    => 'stats_counter_5_label',
-                'value'   => 'Countries Currently Using',
-                'options' => [
-                    'class'        => 'form-control',
-                    'placeholder'  => __('Enter counter label'),
-                    'data-counter' => 50,
-                ],
-            ],
-        ])
-        ->setField([
-            'id'         => 'stats_counter_6_number',
-            'section_id' => 'opt-text-subsection-stats',
-            'type'       => 'text',
-            'label'      => __('Counter 6 Number'),
-            'attributes' => [
-                'name'    => 'stats_counter_6_number',
-                'value'   => '12000',
-                'options' => [
-                    'class'        => 'form-control',
-                    'placeholder'  => __('Enter counter number'),
-                    'data-counter' => 10,
-                ],
-            ],
-        ])
-        ->setField([
-            'id'         => 'stats_counter_6_label',
-            'section_id' => 'opt-text-subsection-stats',
-            'type'       => 'text',
-            'label'      => __('Counter 6 Label'),
-            'attributes' => [
-                'name'    => 'stats_counter_6_label',
-                'value'   => 'Daily Travel Content Sharing Activities',
-                'options' => [
-                    'class'        => 'form-control',
-                    'placeholder'  => __('Enter counter label'),
-                    'data-counter' => 50,
-                ],
-            ],
-        ])
-        // ->setField([
-        //     'id'         => 'stats_download_title',
-        //     'section_id' => 'opt-text-subsection-stats',
-        //     'type'       => 'text',
-        //     'label'      => __('Download Title'),
-        //     'attributes' => [
-        //         'name'    => 'stats_download_title',
-        //         'value'   => 'TẢI NGAY',
-        //         'options' => [
-        //             'class'        => 'form-control',
-        //             'placeholder'  => __('Enter download title'),
-        //             'data-counter' => 50,
-        //         ],
-        //     ],
-        // ])
-        // ->setField([
-        //     'id'         => 'stats_ios_link',
-        //     'section_id' => 'opt-text-subsection-stats',
-        //     'type'       => 'text',
-        //     'label'      => __('iOS Download Link'),
-        //     'attributes' => [
-        //         'name'    => 'stats_ios_link',
-        //         'value'   => 'https://apps.apple.com/vn/app/xintel/id6733243038?l=vi',
-        //         'options' => [
-        //             'class'        => 'form-control',
-        //             'placeholder'  => __('Enter iOS app download link'),
-        //             'data-counter' => 255,
-        //         ],
-        //     ],
-        // ])
-        // ->setField([
-        //     'id'         => 'stats_android_link',
-        //     'section_id' => 'opt-text-subsection-stats',
-        //     'type'       => 'text',
-        //     'label'      => __('Android Download Link'),
-        //     'attributes' => [
-        //         'name'    => 'stats_android_link',
-        //         'value'   => 'https://images-storage-bucket.s3.ap-southeast-1.amazonaws.com/xin/download/xintel-v1.0.10.apk',
-        //         'options' => [
-        //             'class'        => 'form-control',
-        //             'placeholder'  => __('Enter Android app download link'),
-        //             'data-counter' => 255,
-        //         ],
-        //     ],
-        // ])
-
-
-
-
-        // Strategic Partners Section
-        ->setSection([
-            'title'      => __('12. Section Partners'),
-            'desc'       => __('Strategic Partners section settings'),
-            'id'         => 'opt-text-subsection-strategic-partners',
+            'title'      => __('Section 5. Why choose Xintel'),
+            'desc'       => __('Section why choose settings'),
+            'id'         => 'opt-why-choose',
             'subsection' => true,
             'icon'       => 'fa fa-handshake',
         ])
         ->setField([
-            'id'         => 'partner_heading',
-            'section_id' => 'opt-text-subsection-strategic-partners',
+            'id'         => 'opt-why-choose_section_id',
+            'section_id' => 'opt-why-choose',
+            'type'       => 'text',
+            'label'      => __('Section Id'),
+            'attributes' => [
+                'name'    => 'opt-why-choose_section_id',
+                'value'   => 'why-choose',
+                'options' => [
+                    'class'        => 'form-control',
+                    'data-counter' => 250,
+                ],
+            ],
+            'helper'     => __('Sử dụng đặt vào cuối liên kết trong menu. <br> Ví dụ: https://domain.com/#section_id'),
+        ])
+        ->setField([
+            'id'         => 'opt-why-choose_section_handing',
+            'section_id' => 'opt-why-choose',
             'type'       => 'text',
             'label'      => __('Section Title'),
             'attributes' => [
-                'name'    => 'partner_heading',
-                'value'   => 'STRATEGIC PARTNER',
+                'name'    => 'opt-why-choose_section_handing',
+                'value'   => 'Why Choose XINTEL ?',
                 'options' => [
                     'class'        => 'form-control',
-                    'data-counter' => 120,
+                    'data-counter' => 250,
                 ],
             ],
         ])
         ->setField([
-            'id'         => 'partner_sub_heading',
-            'section_id' => 'opt-text-subsection-strategic-partners',
-            'type'       => 'textarea',
-            'label'      => __('Section Description'),
+            'id'         => 'opt-why-choose_col_1_item_1_fontawesome',
+            'section_id' => 'opt-why-choose',
+            'type'       => 'text',
+            'label'      => __('Col 1 Item 1: Fontawesome'),
             'attributes' => [
-                'name'    => 'partner_sub_heading',
-                'value'   => 'We are building the XIN ecosystem alongside leading partners across various sectors – from technology and finance to tourism and media. Trust and long-term collaboration are the foundation of every step forward.',
+                'name'    => 'opt-why-choose_col_1_item_1_fontawesome',
+                'value'   => 'fas fa-bullseye',
                 'options' => [
-                    'class' => 'form-control',
-                    'rows'  => 3,
+                    'class'        => 'form-control',
+                    'data-counter' => 250,
                 ],
             ],
         ])
         ->setField([
-            'id'         => 'partners',
-            'section_id' => 'opt-text-subsection-strategic-partners',
-            'type'       => 'repeater',
-            'label'      => __('Partners - (Note: must be divisible by 8)'),
+            'id'         => 'opt-why-choose_col_1_item_1_icon',
+            'section_id' => 'opt-why-choose',
+            'type'       => 'mediaImage',
+            'label'      => __('Col 1 Item 1: Icon'),
             'attributes' => [
-                'name'   => 'partners',
+                'name'    => 'opt-why-choose_col_1_item_1_icon',
+                'value'   => null,
+                'options' => [
+                    'class'        => 'form-control',
+                ],
+            ],
+        ])
+        ->setField([
+            'id'         => 'opt-why-choose_col_1_item_1_title',
+            'section_id' => 'opt-why-choose',
+            'type'       => 'text',
+            'label'      => __('Col 1 Item 1: Title'),
+            'attributes' => [
+                'name'    => 'opt-why-choose_col_1_item_1_title',
+                'value'   => 'Vission, Mission',
+                'options' => [
+                    'class'        => 'form-control',
+                    'data-counter' => 250,
+                ],
+            ],
+        ])
+        ->setField([
+            'id'         => 'opt-why-choose_col_1_item_2_fontawesome',
+            'section_id' => 'opt-why-choose',
+            'type'       => 'text',
+            'label'      => __('Col 1 Item 2: Fontawesome'),
+            'attributes' => [
+                'name'    => 'opt-why-choose_col_1_item_2_fontawesome',
+                'value'   => 'fas fa-link',
+                'options' => [
+                    'class'        => 'form-control',
+                    'data-counter' => 250,
+                ],
+            ],
+        ])
+        ->setField([
+            'id'         => 'opt-why-choose_col_1_item_2_icon',
+            'section_id' => 'opt-why-choose',
+            'type'       => 'mediaImage',
+            'label'      => __('Col 1 Item 2: Icon'),
+            'attributes' => [
+                'name'    => 'opt-why-choose_col_1_item_2_icon',
+                'value'   => null,
+            ],
+        ])
+        ->setField([
+            'id'         => 'opt-why-choose_col_1_item_2_title',
+            'section_id' => 'opt-why-choose',
+            'type'       => 'text',
+            'label'      => __('Col 1 Item 2: Title'),
+            'attributes' => [
+                'name'    => 'opt-why-choose_col_1_item_2_title',
+                'value'   => 'Transparent Legality',
+                'options' => [
+                    'class'        => 'form-control',
+                    'data-counter' => 250,
+                ],
+            ],
+        ])
+        ->setField([
+            'id'         => 'opt-why-choose_col_2_item_1_fontawesome',
+            'section_id' => 'opt-why-choose',
+            'type'       => 'text',
+            'label'      => __('Col 2 Item 1: Fontawesome'),
+            'attributes' => [
+                'name'    => 'opt-why-choose_col_2_item_1_fontawesome',
+                'value'   => 'fas fa-chart-line',
+                'options' => [
+                    'class'        => 'form-control',
+                    'data-counter' => 250,
+                ],
+            ],
+        ])
+        ->setField([
+            'id'         => 'opt-why-choose_col_2_item_1_icon',
+            'section_id' => 'opt-why-choose',
+            'type'       => 'mediaImage',
+            'label'      => __('Col 2 Item 1: Icon'),
+            'attributes' => [
+                'name'    => 'opt-why-choose_col_2_item_1_icon',
+                'value'   => null,
+            ],
+        ])
+        ->setField([
+            'id'         => 'opt-why-choose_col_2_item_1_title',
+            'section_id' => 'opt-why-choose',
+            'type'       => 'text',
+            'label'      => __('Col 2 Item 1: Title'),
+            'attributes' => [
+                'name'    => 'opt-why-choose_col_2_item_1_title',
+                'value'   => 'Deliver Real Value',
+                'options' => [
+                    'class'        => 'form-control',
+                    'data-counter' => 250,
+                ],
+            ],
+        ])
+        ->setField([
+            'id'         => 'opt-why-choose_col_2_item_2_fontawesome',
+            'section_id' => 'opt-why-choose',
+            'type'       => 'text',
+            'label'      => __('Col 2 Item 2: Fontawesome'),
+            'attributes' => [
+                'name'    => 'opt-why-choose_col_2_item_2_fontawesome',
+                'value'   => 'fas fa-users',
+                'options' => [
+                    'class'        => 'form-control',
+                    'data-counter' => 250,
+                ],
+            ],
+        ])
+        ->setField([
+            'id'         => 'opt-why-choose_col_2_item_2_icon',
+            'section_id' => 'opt-why-choose',
+            'type'       => 'mediaImage',
+            'label'      => __('Col 2 Item 2: Icon'),
+            'attributes' => [
+                'name'    => 'opt-why-choose_col_2_item_2_icon',
+                'value'   => null,
+            ],
+        ])
+        ->setField([
+            'id'         => 'opt-why-choose_col_2_item_2_title',
+            'section_id' => 'opt-why-choose',
+            'type'       => 'text',
+            'label'      => __('Col 2 Item 2: Title'),
+            'attributes' => [
+                'name'    => 'opt-why-choose_col_2_item_2_title',
+                'value'   => 'Quality Products',
+                'options' => [
+                    'class'        => 'form-control',
+                    'data-counter' => 250,
+                ],
+            ],
+        ])
+        ->setField([
+            'id'         => 'opt-why-choose_col_3_item_1_fontawesome',
+            'section_id' => 'opt-why-choose',
+            'type'       => 'text',
+            'label'      => __('Col 3 Item 1: Fontawesome'),
+            'attributes' => [
+                'name'    => 'opt-why-choose_col_3_item_1_fontawesome',
+                'value'   => 'fas fa-balance-scale',
+                'options' => [
+                    'class'        => 'form-control',
+                    'data-counter' => 250,
+                ],
+            ],
+        ])
+        ->setField([
+            'id'         => 'opt-why-choose_col_3_item_1_icon',
+            'section_id' => 'opt-why-choose',
+            'type'       => 'mediaImage',
+            'label'      => __('Col 3 Item 1: Icon'),
+            'attributes' => [
+                'name'    => 'opt-why-choose_col_3_item_1_icon',
+                'value'   => null,
+            ],
+        ])
+        ->setField([
+            'id'         => 'opt-why-choose_col_3_item_1_title',
+            'section_id' => 'opt-why-choose',
+            'type'       => 'text',
+            'label'      => __('Col 3 Item 1: Title'),
+            'attributes' => [
+                'name'    => 'opt-why-choose_col_3_item_1_title',
+                'value'   => 'Return On Investment (ROI)',
+                'options' => [
+                    'class'        => 'form-control',
+                    'data-counter' => 250,
+                ],
+            ],
+        ])
+        ->setField([
+            'id'         => 'opt-why-choose_col_3_item_2_fontawesome',
+            'section_id' => 'opt-why-choose',
+            'type'       => 'text',
+            'label'      => __('Col 3 Item 2: Fontawesome'),
+            'attributes' => [
+                'name'    => 'opt-why-choose_col_3_item_2_fontawesome',
+                'value'   => 'fas fa-cube',
+                'options' => [
+                    'class'        => 'form-control',
+                    'data-counter' => 250,
+                ],
+            ],
+        ])
+        ->setField([
+            'id'         => 'opt-why-choose_col_3_item_2_icon',
+            'section_id' => 'opt-why-choose',
+            'type'       => 'mediaImage',
+            'label'      => __('Col 3 Item 2: Icon'),
+            'attributes' => [
+                'name'    => 'opt-why-choose_col_3_item_2_icon',
+                'value'   => null,
+            ],
+        ])
+        ->setField([
+            'id'         => 'opt-why-choose_col_3_item_2_title',
+            'section_id' => 'opt-why-choose',
+            'type'       => 'text',
+            'label'      => __('Col 3 Item 2: Title'),
+            'attributes' => [
+                'name'    => 'opt-why-choose_col_3_item_2_title',
+                'value'   => 'Clear Plans and Strategies',
+                'options' => [
+                    'class'        => 'form-control',
+                    'data-counter' => 250,
+                ],
+            ],
+        ])
+        ->setField([
+            'id'         => 'opt-why-choose_col_4_item_1_fontawesome',
+            'section_id' => 'opt-why-choose',
+            'type'       => 'text',
+            'label'      => __('Col 4 Item 1: Fontawesome'),
+            'attributes' => [
+                'name'    => 'opt-why-choose_col_4_item_1_fontawesome',
+                'value'   => 'fas fa-route',
+                'options' => [
+                    'class'        => 'form-control',
+                    'data-counter' => 250,
+                ],
+            ],
+        ])
+        ->setField([
+            'id'         => 'opt-why-choose_col_4_item_1_icon',
+            'section_id' => 'opt-why-choose',
+            'type'       => 'mediaImage',
+            'label'      => __('Col 4 Item 1: Icon'),
+            'attributes' => [
+                'name'    => 'opt-why-choose_col_4_item_1_icon',
+                'value'   => null,
+            ],
+        ])
+        ->setField([
+            'id'         => 'opt-why-choose_col_4_item_1_title',
+            'section_id' => 'opt-why-choose',
+            'type'       => 'text',
+            'label'      => __('Col 4 Item 1: Title'),
+            'attributes' => [
+                'name'    => 'opt-why-choose_col_4_item_1_title',
+                'value'   => 'A Professional and Experienced Team',
+                'options' => [
+                    'class'        => 'form-control',
+                    'data-counter' => 250,
+                ],
+            ],
+        ])
+        ->setField([
+            'id'         => 'opt-why-choose_col_4_item_2_fontawesome',
+            'section_id' => 'opt-why-choose',
+            'type'       => 'text',
+            'label'      => __('Col 4 Item 2: Fontawesome'),
+            'attributes' => [
+                'name'    => 'opt-why-choose_col_4_item_2_fontawesome',
+                'value'   => 'fas fa-coins',
+                'options' => [
+                    'class'        => 'form-control',
+                    'data-counter' => 250,
+                ],
+            ],
+        ])
+        ->setField([
+            'id'         => 'opt-why-choose_col_4_item_2_icon',
+            'section_id' => 'opt-why-choose',
+            'type'       => 'mediaImage',
+            'label'      => __('Col 4 Item 2: Icon'),
+            'attributes' => [
+                'name'    => 'opt-why-choose_col_4_item_2_icon',
+                'value'   => null,
+            ],
+        ])
+        ->setField([
+            'id'         => 'opt-why-choose_col_4_item_2_title',
+            'section_id' => 'opt-why-choose',
+            'type'       => 'text',
+            'label'      => __('Col 4 Item 2: Title'),
+            'attributes' => [
+                'name'    => 'opt-why-choose_col_4_item_2_title',
+                'value'   => 'TOKENOMICS',
+                'options' => [
+                    'class'        => 'form-control',
+                    'data-counter' => 250,
+                ],
+            ],
+        ])
+
+
+        // Section 6. Phase
+        ->setSection([
+            'title'      => __('Section 6. Phase'),
+            'desc'       => __('Phase settings'),
+            'id'         => 'opt-phase',
+            'subsection' => true,
+            'icon'       => 'fa fa-chart-line',
+        ])
+        ->setField([
+            'id'         => 'opt-phase_section_id',
+            'section_id' => 'opt-phase',
+            'type'       => 'text',
+            'label'      => __('Section Id'),
+            'attributes' => [
+                'name'    => 'opt-phase_section_id',
+                'value'   => 'phase',
+                'options' => [
+                    'class'        => 'form-control',
+                    'data-counter' => 250,
+                ],
+            ],
+            'helper'     => __('Sử dụng đặt vào cuối liên kết trong menu. <br> Ví dụ: https://domain.com/#section_id'),
+        ])
+        ->setField([
+            'id'         => 'opt-phase_1_heading',
+            'section_id' => 'opt-phase',
+            'type'       => 'text',
+            'label'      => __('Phase 1: Heading'),
+            'attributes' => [
+                'name'    => 'opt-phase_1_heading',
+                'value'   => 'X-NFT & E-Sim',
+                'options' => [
+                    'class'        => 'form-control',
+                    'data-counter' => 250,
+                ],
+            ],
+        ])
+        ->setField([
+            'id'         => 'opt-phase_1_sub_heading',
+            'section_id' => 'opt-phase',
+            'type'       => 'text',
+            'label'      => __('Phase 1: Sub Heading'),
+            'attributes' => [
+                'name'    => 'opt-phase_1_sub_heading',
+                'value'   => 'EXCLUSIVE LUCKY NUMBERS - BREAKTHROUGH CONNECTION',
+                'options' => [
+                    'class'        => 'form-control',
+                    'data-counter' => 250,
+                ],
+            ],
+        ])
+        ->setField([
+            'id'         => 'opt-phase_1_description',
+            'section_id' => 'opt-phase',
+            'type'       => 'textarea',
+            'label'      => __('Phase 1: Description'),
+            'attributes' => [
+                'name'    => 'opt-phase_1_description',
+                'value'   => 'X-NFT offers exclusive lucky numbers, enabling your unique digital identity in the blockchain world. E-Sim elevates your experience to the next level, connecting you globally with cutting-edge technology.',
+                'options' => [
+                    'class'        => 'form-control',
+                    'data-counter' => 250,
+                ],
+            ],
+        ])
+        ->setField([
+            'id'         => 'opt-phase_2_heading',
+            'section_id' => 'opt-phase',
+            'type'       => 'text',
+            'label'      => __('Phase 2: Heading'),
+            'attributes' => [
+                'name'    => 'opt-phase_2_heading',
+                'value'   => 'XINSTAR',
+                'options' => [
+                    'class'        => 'form-control',
+                    'data-counter' => 250,
+                ],
+            ],
+        ])
+        ->setField([
+            'id'         => 'opt-phase_2_sub_heading',
+            'section_id' => 'opt-phase',
+            'type'       => 'text',
+            'label'      => __('Phase 2: Sub Heading'),
+            'attributes' => [
+                'name'    => 'opt-phase_2_sub_heading',
+                'value'   => 'SHORT VIDEO - LIVESTREAM - TRAVEL ENTERTAINMENT',
+                'options' => [
+                    'class'        => 'form-control',
+                    'data-counter' => 250,
+                ],
+            ],
+        ])
+        ->setField([
+            'id'         => 'opt-phase_2_description',
+            'section_id' => 'opt-phase',
+            'type'       => 'textarea',
+            'label'      => __('Phase 2: Description'),
+            'attributes' => [
+                'name'    => 'opt-phase_2_description',
+                'value'   => 'Content creation. Media platform. Preserving local cultural values. Reviews: Places, food, travel, people... Sharing experiences.',
+                'options' => [
+                    'class'        => 'form-control',
+                    'data-counter' => 250,
+                ],
+            ],
+        ])
+        ->setField([
+            'id'         => 'opt-phase_3_heading',
+            'section_id' => 'opt-phase',
+            'type'       => 'text',
+            'label'      => __('Phase 3: Heading'),
+            'attributes' => [
+                'name'    => 'opt-phase_3_heading',
+                'value'   => 'AI XINTOUR',
+                'options' => [
+                    'class'        => 'form-control',
+                    'data-counter' => 250,
+                ],
+            ],
+        ])
+        ->setField([
+            'id'         => 'opt-phase_3_sub_heading',
+            'section_id' => 'opt-phase',
+            'type'       => 'text',
+            'label'      => __('Phase 3: Sub Heading'),
+            'attributes' => [
+                'name'    => 'opt-phase_3_sub_heading',
+                'value'   => 'AI XIN TOUR CHAT',
+                'options' => [
+                    'class'        => 'form-control',
+                    'data-counter' => 250,
+                ],
+            ],
+        ])
+        ->setField([
+            'id'         => 'opt-phase_3_description',
+            'section_id' => 'opt-phase',
+            'type'       => 'textarea',
+            'label'      => __('Phase 3: Description'),
+            'attributes' => [
+                'name'    => 'opt-phase_3_description',
+                'value'   => 'No need for tour guides or rigid itineraries – AI XIN TOUR helps you design the optimal journey based on your preferences, weather, budget, and current status. Travel experiences are now intelligently "tailored" down to the finest detail.',
+                'options' => [
+                    'class'        => 'form-control',
+                    'data-counter' => 250,
+                ],
+            ],
+        ])
+        ->setField([
+            'id'         => 'opt-phase_4_heading',
+            'section_id' => 'opt-phase',
+            'type'       => 'text',
+            'label'      => __('Phase 4: Heading'),
+            'attributes' => [
+                'name'    => 'opt-phase_4_heading',
+                'value'   => 'Kết nối E-Sim',
+                'options' => [
+                    'class'        => 'form-control',
+                    'data-counter' => 250,
+                ],
+            ],
+        ])
+        ->setField([
+            'id'         => 'opt-phase_4_sub_heading',
+            'section_id' => 'opt-phase',
+            'type'       => 'text',
+            'label'      => __('Phase 4: Sub Heading'),
+            'attributes' => [
+                'name'    => 'opt-phase_4_sub_heading',
+                'value'   => '',
+                'options' => [
+                    'class'        => 'form-control',
+                    'data-counter' => 250,
+                ],
+            ],
+        ])
+        ->setField([
+            'id'         => 'opt-phase_4_description',
+            'section_id' => 'opt-phase',
+            'type'       => 'textarea',
+            'label'      => __('Phase 4: Description'),
+            'attributes' => [
+                'name'    => 'opt-phase_4_description',
+                'value'   => 'E-SIM is transforming the way we connect to mobile networks, eliminating the need for physical SIM cards and enabling flexible, seamless roaming for users around the world.',
+                'options' => [
+                    'class'        => 'form-control',
+                    'data-counter' => 250,
+                ],
+            ],
+        ])
+        ->setField([
+            'id'         => 'opt-phase_5_heading',
+            'section_id' => 'opt-phase',
+            'type'       => 'text',
+            'label'      => __('Phase 5: Heading'),
+            'attributes' => [
+                'name'    => 'opt-phase_5_heading',
+                'value'   => 'Meeting',
+                'options' => [
+                    'class'        => 'form-control',
+                    'data-counter' => 250,
+                ],
+            ],
+        ])
+        ->setField([
+            'id'         => 'opt-phase_5_sub_heading',
+            'section_id' => 'opt-phase',
+            'type'       => 'text',
+            'label'      => __('Phase 5: Sub Heading'),
+            'attributes' => [
+                'name'    => 'opt-phase_5_sub_heading',
+                'value'   => '',
+                'options' => [
+                    'class'        => 'form-control',
+                    'data-counter' => 250,
+                ],
+            ],
+        ])
+        ->setField([
+            'id'         => 'opt-phase_5_description',
+            'section_id' => 'opt-phase',
+            'type'       => 'textarea',
+            'label'      => __('Phase 5: Description'),
+            'attributes' => [
+                'name'    => 'opt-phase_5_description',
+                'value'   => 'Meetings are no longer a nightmare when supported by smart digital tools. From Zoom and Google Meet to AI-powered note-taking – all are designed for meetings that are fast, focused, and efficient.',
+                'options' => [
+                    'class'        => 'form-control',
+                    'data-counter' => 250,
+                ],
+            ],
+        ])
+
+        // Section 7. Core Team Members
+        ->setSection([
+            'title'      => __('Section 7. Core Team Members'),
+            'desc'       => __('Core Team Members settings'),
+            'id'         => 'opt-core-team-members',
+            'subsection' => true,
+            'icon'       => 'fa fa-chart-line',
+        ])
+        ->setField([
+            'id'         => 'opt-core-team-members_section_id',
+            'section_id' => 'opt-core-team-members',
+            'type'       => 'text',
+            'label'      => __('Section Id'),
+            'attributes' => [
+                'name'    => 'opt-core-team-members_section_id',
+                'value'   => 'core-team-members',
+                'options' => [
+                    'class'        => 'form-control',
+                    'data-counter' => 250,
+                ],
+            ],
+            'helper'     => __('Sử dụng đặt vào cuối liên kết trong menu. <br> Ví dụ: https://domain.com/#section_id'),
+        ])
+        ->setField([
+            'id'         => 'opt-core-team-members_section_handing',
+            'section_id' => 'opt-core-team-members',
+            'type'       => 'text',
+            'label'      => __('Section Title'),
+            'attributes' => [
+                'name'    => 'opt-core-team-members_section_handing',
+                'value'   => 'Core Team Members',
+                'options' => [
+                    'class'        => 'form-control',
+                    'data-counter' => 250,
+                ],
+            ],
+        ])
+        ->setField([
+            'id'         => 'opt-core-team-members_section_items',
+            'section_id' => 'opt-core-team-members',
+            'type'       => 'repeater',
+            'label'      => 'Nhân sự trong nước',
+            'attributes' => [
+                'name'   => 'opt-core-team-members_section_items',
                 'value'  => null,
                 'fields' => [
                     [
+                        'type'       => 'mediaImage',
+                        'label'      => __('Avatar'),
+                        'attributes' => [
+                            'name'  => 'avatar',
+                            'value' => null,
+                        ],
+                    ],
+                    [
                         'type'       => 'text',
-                        'label'      => __('Partner Name'),
+                        'label'      => __('Name'),
                         'attributes' => [
                             'name'    => 'name',
                             'value'   => null,
@@ -2360,116 +1021,778 @@ and innovative blockchain solutions.',
                         ],
                     ],
                     [
-                        'type'       => 'mediaImage',
-                        'label'      => __('Partner Logo'),
+                        'type'       => 'text',
+                        'label'      => __('Title'),
                         'attributes' => [
-                            'name'  => 'logo',
+                            'name'    => 'title',
+                            'value'   => null,
+                            'options' => [
+                                'class'        => 'form-control',
+                                'data-counter' => 120,
+                            ],
+                        ],
+                    ],
+                    [
+                        'type'       => 'repeater',
+                        'label'      => __('Social Links'),
+                        'attributes' => [
+                            'name'    => 'social_links',
+                            'value'   => null,
+                            'fields' => [
+                                [
+                                    'type'       => 'select',
+                                    'label'      => __('Icon'),
+                                    'attributes' => [
+                                        'name'    => 'icon',
+                                        'data' => [
+                                            'none' => __('None'),
+                                            'fa-brands fa-facebook-f' => __('Facebook'),
+                                            'fa-solid fa-x' => __('X'),
+                                            'fa-brands fa-linkedin-in' => __('Linkedin'),
+                                        ],
+                                        'value'   => null,
+                                        'options' => [
+                                            'class'        => 'form-control',
+                                        ],
+                                    ],
+                                ],
+                                [
+                                    'type'       => 'text',
+                                    'label'      => __('URL'),
+                                    'attributes' => [
+                                        'name'    => 'url',
+                                        'value'   => null,
+                                        'options' => [
+                                            'class'        => 'form-control',
+                                        ],
+                                    ],
+                                ],
+                            ]
+                        ],
+                    ],
+                ],
+            ],
+        ])
+        ->setField([
+            'id'         => 'opt-core-team-members_section_items_our_team',
+            'section_id' => 'opt-core-team-members',
+            'type'       => 'repeater',
+            'label'      => 'Nhân sự nước ngoài',
+            'attributes' => [
+                'name'   => 'opt-core-team-members_section_items_our_team',
+                'value'  => null,
+                'fields' => [
+                    [
+                        'type'       => 'mediaImage',
+                        'label'      => __('Avatar'),
+                        'attributes' => [
+                            'name'  => 'avatar',
                             'value' => null,
                         ],
                     ],
-                    // [
-                    //     'type'       => 'text',
-                    //     'label'      => __('Partner Website'),
-                    //     'attributes' => [
-                    //         'name'    => 'website',
-                    //         'value'   => null,
-                    //         'options' => [
-                    //             'class'        => 'form-control',
-                    //             'data-counter' => 255,
-                    //         ],
-                    //     ],
-                    // ],
+                    [
+                        'type'       => 'text',
+                        'label'      => __('Name'),
+                        'attributes' => [
+                            'name'    => 'name',
+                            'value'   => null,
+                            'options' => [
+                                'class'        => 'form-control',
+                                'data-counter' => 120,
+                            ],
+                        ],
+                    ],
+                    [
+                        'type'       => 'text',
+                        'label'      => __('Title'),
+                        'attributes' => [
+                            'name'    => 'title',
+                            'value'   => null,
+                            'options' => [
+                                'class'        => 'form-control',
+                                'data-counter' => 120,
+                            ],
+                        ],
+                    ],
+                    [
+                        'type'       => 'repeater',
+                        'label'      => __('Social Links'),
+                        'attributes' => [
+                            'name'    => 'social_links',
+                            'value'   => null,
+                            'fields' => [
+                                [
+                                    'type'       => 'select',
+                                    'label'      => __('Icon'),
+                                    'attributes' => [
+                                        'name'    => 'icon',
+                                        'data' => [
+                                            'none' => __('None'),
+                                            'fa-brands fa-facebook-f' => __('Facebook'),
+                                            'fa-solid fa-x' => __('X'),
+                                            'fa-brands fa-linkedin-in' => __('Linkedin'),
+                                        ],
+                                        'value'   => null,
+                                        'options' => [
+                                            'class'        => 'form-control',
+                                        ],
+                                    ],
+                                ],
+                                [
+                                    'type'       => 'text',
+                                    'label'      => __('URL'),
+                                    'attributes' => [
+                                        'name'    => 'url',
+                                        'value'   => null,
+                                        'options' => [
+                                            'class'        => 'form-control',
+                                        ],
+                                    ],
+                                ],
+                            ]
+                        ],
+                    ],
                 ],
             ],
         ])
 
 
-
-
-        // Download Section
+        // Section 8. Experience
         ->setSection([
-            'title'      => __('13. Section Download'),
-            'desc'       => __('Download section settings'),
-            'id'         => 'opt-text-subsection-download',
+            'title'      => __('Section 8. Experience'),
+            'desc'       => __('Experience settings'),
+            'id'         => 'opt-experience',
             'subsection' => true,
-            'icon'       => 'fa fa-download',
+            'icon'       => 'fa fa-chart-line',
         ])
         ->setField([
-            'id'         => 'download_background_image',
-            'section_id' => 'opt-text-subsection-download',
-            'type'       => 'mediaImage',
-            'label'      => __('Background Image'),
+            'id'         => 'opt-experience_section_id',
+            'section_id' => 'opt-experience',
+            'type'       => 'text',
+            'label'      => __('Section Id'),
             'attributes' => [
-                'name'  => 'download_background_image',
-                'value' => null,
+                'name'    => 'opt-experience_section_id',
+                'value'   => 'experience',
+                'options' => [
+                    'class'        => 'form-control',
+                    'data-counter' => 250,
+                ],
+            ],
+            'helper'     => __('Sử dụng đặt vào cuối liên kết trong menu. <br> Ví dụ: https://domain.com/#section_id'),
+        ])
+        ->setField([
+            'id'         => 'opt-experience_section_handing',
+            'section_id' => 'opt-experience',
+            'type'       => 'text',
+            'label'      => __('Heading'),
+            'attributes' => [
+                'name'    => 'opt-experience_section_handing',
+                'value'   => 'Experience',
+                'options' => [
+                    'class'        => 'form-control',
+                    'data-counter' => 250,
+                ],
             ],
         ])
         ->setField([
-            'id'         => 'download_title',
-            'section_id' => 'opt-text-subsection-download',
+            'id'         => 'opt-experience_section_sub_handing',
+            'section_id' => 'opt-experience',
+            'type'       => 'text',
+            'label'      => __('Sub Heading'),
+            'attributes' => [
+                'name'    => 'opt-experience_section_sub_handing',
+                'value'   => 'XINSTAR TODAY',
+                'options' => [
+                    'class'        => 'form-control',
+                    'data-counter' => 250,
+                ],
+            ],
+        ])
+        ->setField([
+            'id'         => 'opt-experience_section_button_heading',
+            'section_id' => 'opt-experience',
+            'type'       => 'text',
+            'label'      => __('Button Heading'),
+            'attributes' => [
+                'name'    => 'opt-experience_section_button_heading',
+                'value'   => 'Đến với XINSTAR',
+                'options' => [
+                    'class'        => 'form-control',
+                    'data-counter' => 250,
+                ],
+            ],
+        ])
+        ->setField([
+            'id'         => 'opt-experience_section_button_url',
+            'section_id' => 'opt-experience',
+            'type'       => 'text',
+            'label'      => __('Button Url'),
+            'attributes' => [
+                'name'    => 'opt-experience_section_button_url',
+                'value'   => '',
+                'options' => [
+                    'class'        => 'form-control',
+                    'data-counter' => 250,
+                ],
+            ],
+        ])
+
+        // Section 9. Product
+        ->setSection([
+            'title'      => __('Section 9. Products'),
+            'desc'       => __('Products settings'),
+            'id'         => 'opt-products',
+            'subsection' => true,
+            'icon'       => 'fa fa-chart-line',
+        ])
+        ->setField([
+            'id'         => 'opt-products_section_id',
+            'section_id' => 'opt-products',
+            'type'       => 'text',
+            'label'      => __('Section Id'),
+            'attributes' => [
+                'name'    => 'opt-products_section_id',
+                'value'   => 'products',
+                'options' => [
+                    'class'        => 'form-control',
+                    'data-counter' => 250,
+                ],
+            ],
+            'helper'     => __('Sử dụng đặt vào cuối liên kết trong menu. <br> Ví dụ: https://domain.com/#section_id'),
+        ])
+        ->setField([
+            'id'         => 'opt-products_section_handing',
+            'section_id' => 'opt-products',
             'type'       => 'text',
             'label'      => __('Section Title'),
             'attributes' => [
-                'name'    => 'download_title',
-                'value'   => 'DOWNLOAD NOW!',
+                'name'    => 'opt-products_section_handing',
+                'value'   => 'Products',
                 'options' => [
                     'class'        => 'form-control',
-                    'data-counter' => 120,
+                    'data-counter' => 250,
                 ],
             ],
         ])
         ->setField([
-            'id'         => 'download_appstore_link',
-            'section_id' => 'opt-text-subsection-download',
-            'type'       => 'text',
-            'label'      => __('App Store Link'),
+            'id'         => 'opt-products_section_items',
+            'section_id' => 'opt-products',
+            'type'       => 'repeater',
+            'label'      => 'List Items',
             'attributes' => [
-                'name'    => 'download_appstore_link',
-                'value'   => '#',
-                'options' => [
-                    'class'        => 'form-control',
-                    'data-counter' => 255,
+                'name'   => 'opt-products_section_items',
+                'value'  => null,
+                'fields' => [
+                    [
+                        'type'       => 'mediaImage',
+                        'label'      => __('Thumbnail'),
+                        'attributes' => [
+                            'name'  => 'thumbnail',
+                            'value' => null,
+                        ],
+                    ],
+                    [
+                        'type'       => 'text',
+                        'label'      => __('Name'),
+                        'attributes' => [
+                            'name'    => 'name',
+                            'value'   => null,
+                            'options' => [
+                                'class'        => 'form-control',
+                                'data-counter' => 120,
+                            ],
+                        ],
+                    ],
+                    [
+                        'type'       => 'text',
+                        'label'      => __('Title'),
+                        'attributes' => [
+                            'name'    => 'title',
+                            'value'   => null,
+                            'options' => [
+                                'class'        => 'form-control',
+                                'data-counter' => 120,
+                            ],
+                        ],
+                    ],
                 ],
             ],
         ])
-        // ->setField([
-        //     'id'         => 'download_appstore_image',
-        //     'section_id' => 'opt-text-subsection-download',
-        //     'type'       => 'mediaImage',
-        //     'label'      => __('App Store Image'),
-        //     'attributes' => [
-        //         'name'  => 'download_appstore_image',
-        //         'value' => null,
-        //     ],
-        // ])
+
+        // Section 10. Support form
+        ->setSection([
+            'title'      => __('Section 10. Support form'),
+            'desc'       => __('Support form settings'),
+            'id'         => 'opt-support-form',
+            'subsection' => true,
+            'icon'       => 'fa fa-chart-line',
+        ])
         ->setField([
-            'id'         => 'download_playstore_link',
-            'section_id' => 'opt-text-subsection-download',
+            'id'         => 'opt-support-form_section_id',
+            'section_id' => 'opt-support-form',
             'type'       => 'text',
-            'label'      => __('Google Play Link'),
+            'label'      => __('Section Id'),
             'attributes' => [
-                'name'    => 'download_playstore_link',
-                'value'   => '#',
+                'name'    => 'opt-support-form_section_id',
+                'value'   => 'support-form',
                 'options' => [
                     'class'        => 'form-control',
-                    'data-counter' => 255,
+                    'data-counter' => 250,
+                ],
+            ],
+            'helper'     => __('Sử dụng đặt vào cuối liên kết trong menu. <br> Ví dụ: https://domain.com/#section_id'),
+        ])
+
+        // Section 11. Roadmap
+        ->setSection([
+            'title'      => __('Section 11. Roadmap'),
+            'desc'       => __('Roadmap settings'),
+            'id'         => 'opt-roadmap',
+            'subsection' => true,
+            'icon'       => 'fa fa-chart-line',
+        ])
+        ->setField([
+            'id'         => 'opt-roadmap_section_id',
+            'section_id' => 'opt-roadmap',
+            'type'       => 'text',
+            'label'      => __('Section Id'),
+            'attributes' => [
+                'name'    => 'opt-roadmap_section_id',
+                'value'   => 'roadmap',
+                'options' => [
+                    'class'        => 'form-control',
+                    'data-counter' => 250,
+                ],
+            ],
+            'helper'     => __('Sử dụng đặt vào cuối liên kết trong menu. <br> Ví dụ: https://domain.com/#section_id'),
+        ])
+        ->setField([
+            'id'         => 'opt-roadmap_section_handing',
+            'section_id' => 'opt-roadmap',
+            'type'       => 'text',
+            'label'      => __('Section Title'),
+            'attributes' => [
+                'name'    => 'opt-roadmap_section_handing',
+                'value'   => 'Roadmap',
+                'options' => [
+                    'class'        => 'form-control',
+                    'data-counter' => 250,
                 ],
             ],
         ])
-        // ->setField([
-        //     'id'         => 'download_playstore_image',
-        //     'section_id' => 'opt-text-subsection-download',
-        //     'type'       => 'mediaImage',
-        //     'label'      => __('Google Play Image'),
-        //     'attributes' => [
-        //         'name'  => 'download_playstore_image',
-        //         'value' => null,
-        //     ],
-        // ])
+        ->setField([
+            'id'         => 'opt-roadmap_row_1_item_1_title',
+            'section_id' => 'opt-roadmap',
+            'type'       => 'text',
+            'label'      => __('Row 1 Roadmap 1: Title'),
+            'attributes' => [
+                'name'    => 'opt-roadmap_row_1_item_1_title',
+                'value'   => '1st quarter - 2024',
+                'options' => [
+                    'class'        => 'form-control',
+                    'data-counter' => 250,
+                ],
+            ],
+        ])
+        ->setField([
+            'id'         => 'opt-roadmap_row_1_item_1_description',
+            'section_id' => 'opt-roadmap',
+            'type'      => 'editor',
+            'label'      => __('Row 1 Roadmap 1: Description'),
+            'attributes' => [
+                'name'  => 'opt-roadmap_row_1_item_1_description',
+                'value' => null, // Default value
+                'options' => [ // Optional
+                    'class' => 'form-control theme-option-textarea',
+                    'row' => '10',
+                ],
+            ],
+        ])
+        ->setField([
+            'id'         => 'opt-roadmap_row_1_item_2_title',
+            'section_id' => 'opt-roadmap',
+            'type'       => 'text',
+            'label'      => __('Row 1 Roadmap 2: Title'),
+            'attributes' => [
+                'name'    => 'opt-roadmap_row_1_item_2_title',
+                'value'   => '2nd quarter - 2024',
+                'options' => [
+                    'class'        => 'form-control',
+                    'data-counter' => 250,
+                ],
+            ],
+        ])
+        ->setField([
+            'id'         => 'opt-roadmap_row_1_item_2_description',
+            'section_id' => 'opt-roadmap',
+            'type'      => 'editor',
+            'label'      => __('Row 1 Roadmap 2: Description'),
+            'attributes' => [
+                'name'  => 'opt-roadmap_row_1_item_2_description',
+                'value' => null, // Default value
+                'options' => [ // Optional
+                    'class' => 'form-control theme-option-textarea',
+                    'row' => '10',
+                ],
+            ],
+        ])
+        ->setField([
+            'id'         => 'opt-roadmap_row_1_item_3_title',
+            'section_id' => 'opt-roadmap',
+            'type'       => 'text',
+            'label'      => __('Row 1 Roadmap 3: Title'),
+            'attributes' => [
+                'name'    => 'opt-roadmap_row_1_item_3_title',
+                'value'   => '3rd quarter - 2024',
+                'options' => [
+                    'class'        => 'form-control',
+                    'data-counter' => 250,
+                ],
+            ],
+        ])
+        ->setField([
+            'id'         => 'opt-roadmap_row_1_item_3_description',
+            'section_id' => 'opt-roadmap',
+            'type'      => 'editor',
+            'label'      => __('Row 1 Roadmap 3: Description'),
+            'attributes' => [
+                'name'  => 'opt-roadmap_row_1_item_3_description',
+                'value' => null, // Default value
+                'options' => [ // Optional
+                    'class' => 'form-control theme-option-textarea',
+                    'row' => '10',
+                ],
+            ],
+        ])
+        ->setField([
+            'id'         => 'opt-roadmap_row_2_item_1_title',
+            'section_id' => 'opt-roadmap',
+            'type'       => 'text',
+            'label'      => __('Row 2 Roadmap 1: Title'),
+            'attributes' => [
+                'name'    => 'opt-roadmap_row_2_item_1_title',
+                'value'   => '1st quarter - 2025',
+                'options' => [
+                    'class'        => 'form-control',
+                    'data-counter' => 250,
+                ],
+            ],
+        ])
+        ->setField([
+            'id'         => 'opt-roadmap_row_2_item_1_description',
+            'section_id' => 'opt-roadmap',
+            'type'      => 'editor',
+            'label'      => __('Row 2 Roadmap 1: Description'),
+            'attributes' => [
+                'name'  => 'opt-roadmap_row_2_item_1_description',
+                'value' => null, // Default value
+                'options' => [ // Optional
+                    'class' => 'form-control theme-option-textarea',
+                    'row' => '10',
+                ],
+            ],
+        ])
+        ->setField([
+            'id'         => 'opt-roadmap_row_2_item_2_title',
+            'section_id' => 'opt-roadmap',
+            'type'       => 'text',
+            'label'      => __('Row 2 Roadmap 2: Title'),
+            'attributes' => [
+                'name'    => 'opt-roadmap_row_2_item_2_title',
+                'value'   => '2nd quarter - 2025',
+                'options' => [
+                    'class'        => 'form-control',
+                    'data-counter' => 250,
+                ],
+            ],
+        ])
+        ->setField([
+            'id'         => 'opt-roadmap_row_2_item_2_description',
+            'section_id' => 'opt-roadmap',
+            'type'      => 'editor',
+            'label'      => __('Row 2 Roadmap 2: Description'),
+            'attributes' => [
+                'name'  => 'opt-roadmap_row_2_item_2_description',
+                'value' => null, // Default value
+                'options' => [ // Optional
+                    'class' => 'form-control theme-option-textarea',
+                    'row' => '10',
+                ],
+            ],
+        ])
+        ->setField([
+            'id'         => 'opt-roadmap_row_2_item_3_title',
+            'section_id' => 'opt-roadmap',
+            'type'       => 'text',
+            'label'      => __('Row 2 Roadmap 3: Title'),
+            'attributes' => [
+                'name'    => 'opt-roadmap_row_2_item_3_title',
+                'value'   => '3rd quarter - 2025',
+                'options' => [
+                    'class'        => 'form-control',
+                    'data-counter' => 250,
+                ],
+            ],
+        ])
+        ->setField([
+            'id'         => 'opt-roadmap_row_2_item_3_description',
+            'section_id' => 'opt-roadmap',
+            'type'      => 'editor',
+            'label'      => __('Row 2 Roadmap 3: Description'),
+            'attributes' => [
+                'name'  => 'opt-roadmap_row_2_item_3_description',
+                'value' => null, // Default value
+                'options' => [ // Optional
+                    'class' => 'form-control theme-option-textarea',
+                    'row' => '10',
+                ],
+            ],
+        ])
+
+        // Section 12. Blog
+        ->setSection([
+            'title'      => __('Section 12. Blog'),
+            'desc'       => __('Blog settings'),
+            'id'         => 'opt-blog',
+            'subsection' => true,
+            'icon'       => 'fa fa-chart-line',
+        ])
+        ->setField([
+            'id'         => 'opt-blog_section_id',
+            'section_id' => 'opt-blog',
+            'type'       => 'text',
+            'label'      => __('Section Id'),
+            'attributes' => [
+                'name'    => 'opt-blog_section_id',
+                'value'   => 'blog',
+                'options' => [
+                    'class'        => 'form-control',
+                    'data-counter' => 250,
+                ],
+            ],
+            'helper'     => __('Sử dụng đặt vào cuối liên kết trong menu. <br> Ví dụ: https://domain.com/#section_id'),
+        ])
+        ->setField([
+            'id'         => 'opt-blog_section_handing',
+            'section_id' => 'opt-blog',
+            'type'       => 'text',
+            'label'      => __('Section Title'),
+            'attributes' => [
+                'name'    => 'opt-blog_section_handing',
+                'value'   => 'Blog',
+                'options' => [
+                    'class'        => 'form-control',
+                    'data-counter' => 250,
+                ],
+            ],
+        ])
+        ->setField([
+            'id'         => 'opt-blog_section_post_per_page',
+            'section_id' => 'opt-blog',
+            'type'       => 'text',
+            'label'      => __('Post Per Page'),
+            'attributes' => [
+                'name'    => 'opt-blog_section_post_per_page',
+                'value'   => 6,
+                'options' => [
+                    'class'        => 'form-control',
+                ],
+            ],
+        ])
+
+        // Section 13. Partners
+        ->setSection([
+            'title'      => __('Section 13. Partners'),
+            'desc'       => __('Partners settings'),
+            'id'         => 'opt-partners',
+            'subsection' => true,
+            'icon'       => 'fa fa-handshake',
+        ])
+        ->setField([
+            'id'         => 'opt-partners_section_id',
+            'section_id' => 'opt-partners',
+            'type'       => 'text',
+            'label'      => __('Section Id'),
+            'attributes' => [
+                'name'    => 'opt-partners_section_id',
+                'value'   => 'partners',
+                'options' => [
+                    'class'        => 'form-control',
+                    'data-counter' => 250,
+                ],
+            ],
+            'helper'     => __('Sử dụng đặt vào cuối liên kết trong menu. <br> Ví dụ: https://domain.com/#section_id'),
+        ])
+        ->setField([
+            'id'         => 'opt-partners_section_mascot',
+            'section_id' => 'opt-partners',
+            'type'       => 'mediaImage',
+            'label'      => __('Section Image Mascot'),
+            'attributes' => [
+                'name'    => 'opt-partners_section_mascot',
+                'value'   => null,
+            ],
+        ])
+        ->setField([
+            'id'         => 'opt-partners_section_items',
+            'section_id' => 'opt-partners',
+            'type'       => 'repeater',
+            'label'      => 'List Items',
+            'attributes' => [
+                'name'   => 'opt-partners_section_items',
+                'value'  => null,
+                'fields' => [
+                    [
+                        'type'       => 'mediaImage',
+                        'label'      => __('Thumbnail'),
+                        'attributes' => [
+                            'name'  => 'thumbnail',
+                            'value' => null,
+                        ],
+                    ],
+                    [
+                        'type'       => 'text',
+                        'label'      => __('Title'),
+                        'attributes' => [
+                            'name'    => 'title',
+                            'value'   => null,
+                            'options' => [
+                                'class'        => 'form-control',
+                                'data-counter' => 120,
+                            ],
+                        ],
+                    ],
+                ],
+            ],
+        ])
+
+        // Section 14. Faqs
+        ->setSection([
+            'title'      => __('Section 14. Faqs'),
+            'desc'       => __('Faqs settings'),
+            'id'         => 'opt-faqs',
+            'subsection' => true,
+            'icon'       => 'fa fa-chart-line',
+        ])
+        ->setField([
+            'id'         => 'opt-faqs_section_id',
+            'section_id' => 'opt-faqs',
+            'type'       => 'text',
+            'label'      => __('Section Id'),
+            'attributes' => [
+                'name'    => 'opt-faqs_section_id',
+                'value'   => 'faq',
+                'options' => [
+                    'class'        => 'form-control',
+                    'data-counter' => 250,
+                ],
+            ],
+            'helper'     => __('Sử dụng đặt vào cuối liên kết trong menu. <br> Ví dụ: https://domain.com/#section_id'),
+        ])
+        ->setField([
+            'id'         => 'opt-faqs_section_handing',
+            'section_id' => 'opt-faqs',
+            'type'       => 'text',
+            'label'      => __('Section Title'),
+            'attributes' => [
+                'name'    => 'opt-faqs_section_handing',
+                'value'   => 'Faq',
+                'options' => [
+                    'class'        => 'form-control',
+                    'data-counter' => 250,
+                ],
+            ],
+        ])
+        ->setField([
+            'id'         => 'opt-faqs_section_items',
+            'section_id' => 'opt-faqs',
+            'type'       => 'repeater',
+            'label'      => 'List Items',
+            'attributes' => [
+                'name'   => 'opt-faqs_section_items',
+                'value'  => null,
+                'fields' => [
+                    [
+                        'type'       => 'text',
+                        'label'      => __('Question'),
+                        'attributes' => [
+                            'name'    => 'question',
+                            'value'   => null,
+                            'options' => [
+                                'class'        => 'form-control',
+                            ],
+                        ],
+                    ],
+                    [
+                        'type'       => 'editor',
+                        'label'      => __('Answer'),
+                        'attributes' => [
+                            'name'    => 'answer',
+                            'value'   => null,
+                            'options' => [
+                                'class'        => 'form-control',
+                            ],
+                        ],
+                    ],
+                ],
+            ],
+        ])
+
+        // Section 15. Contact form
+        ->setSection([
+            'title'      => __('Section 15. Contact form'),
+            'desc'       => __('Contact settings'),
+            'id'         => 'opt-contact',
+            'subsection' => true,
+            'icon'       => 'fa fa-chart-line',
+        ])
+        ->setField([
+            'id'         => 'opt-contact_section_id',
+            'section_id' => 'opt-contact',
+            'type'       => 'text',
+            'label'      => __('Section Id'),
+            'attributes' => [
+                'name'    => 'opt-contact_section_id',
+                'value'   => 'contact',
+                'options' => [
+                    'class'        => 'form-control',
+                    'data-counter' => 250,
+                ],
+            ],
+            'helper'     => __('Sử dụng đặt vào cuối liên kết trong menu. <br> Ví dụ: https://domain.com/#section_id'),
+        ])
+        ->setField([
+            'id'         => 'opt-contact_section_handing',
+            'section_id' => 'opt-contact',
+            'type'       => 'text',
+            'label'      => __('Section Title'),
+            'attributes' => [
+                'name'    => 'opt-contact_section_handing',
+                'value'   => 'Contact us',
+                'options' => [
+                    'class'        => 'form-control',
+                    'data-counter' => 250,
+                ],
+            ],
+        ])
+        ->setField([
+            'id'         => 'opt-contact_section_address',
+            'section_id' => 'opt-contact',
+            'type'       => 'text',
+            'label'      => __('Address'),
+            'attributes' => [
+                'name'    => 'opt-contact_section_address',
+                'value'   => '',
+                'options' => [
+                    'class'        => 'form-control',
+                    'placeholder'  => __('Detail address'),
+                ],
+            ],
+        ])
 
         // Footer Section
         ->setSection([
-            'title'      => __('14. Footer Section'),
+            'title'      => __('Section 16. Footer'),
             'desc'       => __('Footer settings for website'),
             'id'         => 'opt-text-subsection-footer',
             'subsection' => true,
@@ -2478,7 +1801,7 @@ and innovative blockchain solutions.',
         ->setField([
             'id'         => 'footer_site_description',
             'section_id' => 'opt-text-subsection-footer',
-            'type'       => 'wysiwyg',
+            'type'       => 'textarea',
             'label'      => __('Footer site description'),
             'attributes' => [
                 'name'    => 'footer_site_description',
@@ -2521,156 +1844,7 @@ and innovative blockchain solutions.',
                 ],
             ],
         ])
-        // ->setField([
-        //     'id'         => 'footer_telegram_icon',
-        //     'section_id' => 'opt-text-subsection-footer',
-        //     'type'       => 'mediaImage',
-        //     'label'      => __('Telegram Icon'),
-        //     'attributes' => [
-        //         'name'    => 'footer_telegram_icon',
-        //         'value'   => null,
-        //     ],
-        // ])
-        ->setField([
-            'id'         => 'footer_telegram_link',
-            'section_id' => 'opt-text-subsection-footer',
-            'type'       => 'text',
-            'label'      => __('Telegram Link'),
-            'attributes' => [
-                'name'    => 'footer_telegram_link',
-                'value'   => '#',
-                'options' => [
-                    'class'        => 'form-control',
-                    'placeholder'  => __('Enter Telegram link'),
-                    'data-counter' => 255,
-                ],
-            ],
-        ])
-        // ->setField([
-        //     'id'         => 'footer_facebook_icon',
-        //     'section_id' => 'opt-text-subsection-footer',
-        //     'type'       => 'mediaImage',
-        //     'label'      => __('Facebook Icon'),
-        //     'attributes' => [
-        //         'name'    => 'footer_facebook_icon',
-        //         'value'   => null,
-        //     ],
-        // ])
-        ->setField([
-            'id'         => 'footer_facebook_link',
-            'section_id' => 'opt-text-subsection-footer',
-            'type'       => 'text',
-            'label'      => __('Facebook Link'),
-            'attributes' => [
-                'name'    => 'footer_facebook_link',
-                'value'   => 'https://www.facebook.com/profile.php?id=61561928653091&mibextid=LQQJ4d',
-                'options' => [
-                    'class'        => 'form-control',
-                    'placeholder'  => __('Enter Facebook link'),
-                    'data-counter' => 255,
-                ],
-            ],
-        ])
-        // ->setField([
-        //     'id'         => 'footer_youtube_icon',
-        //     'section_id' => 'opt-text-subsection-footer',
-        //     'type'       => 'mediaImage',
-        //     'label'      => __('YouTube Icon'),
-        //     'attributes' => [
-        //         'name'    => 'footer_youtube_icon',
-        //         'value'   => null,
-        //     ],
-        // ])
-        ->setField([
-            'id'         => 'footer_youtube_link',
-            'section_id' => 'opt-text-subsection-footer',
-            'type'       => 'text',
-            'label'      => __('YouTube Link'),
-            'attributes' => [
-                'name'    => 'footer_youtube_link',
-                'value'   => 'https://www.youtube.com/channel/UC3dwgM2BCAcKXuzSsdw-1dQ',
-                'options' => [
-                    'class'        => 'form-control',
-                    'placeholder'  => __('Enter YouTube link'),
-                    'data-counter' => 255,
-                ],
-            ],
-        ])
-        // ->setField([
-        //     'id'         => 'footer_tiktok_icon',
-        //     'section_id' => 'opt-text-subsection-footer',
-        //     'type'       => 'mediaImage',
-        //     'label'      => __('TikTok Icon'),
-        //     'attributes' => [
-        //         'name'    => 'footer_tiktok_icon',
-        //         'value'   => null,
-        //     ],
-        // ])
-        ->setField([
-            'id'         => 'footer_tiktok_link',
-            'section_id' => 'opt-text-subsection-footer',
-            'type'       => 'text',
-            'label'      => __('TikTok Link'),
-            'attributes' => [
-                'name'    => 'footer_tiktok_link',
-                'value'   => 'https://www.tiktok.com/@educhainglobal?is_from_webapp=1&sender_device=pc',
-                'options' => [
-                    'class'        => 'form-control',
-                    'placeholder'  => __('Enter TikTok link'),
-                    'data-counter' => 255,
-                ],
-            ],
-        ])
-        // ->setField([
-        //     'id'         => 'footer_twitter_icon',
-        //     'section_id' => 'opt-text-subsection-footer',
-        //     'type'       => 'mediaImage',
-        //     'label'      => __('Twitter/X Icon'),
-        //     'attributes' => [
-        //         'name'    => 'footer_twitter_icon',
-        //         'value'   => null,
-        //     ],
-        // ])
-        ->setField([
-            'id'         => 'footer_twitter_link',
-            'section_id' => 'opt-text-subsection-footer',
-            'type'       => 'text',
-            'label'      => __('Twitter/X Link'),
-            'attributes' => [
-                'name'    => 'footer_twitter_link',
-                'value'   => 'https://x.com/Educhain_Global',
-                'options' => [
-                    'class'        => 'form-control',
-                    'placeholder'  => __('Enter Twitter/X link'),
-                    'data-counter' => 255,
-                ],
-            ],
-        ])
-        // ->setField([
-        //     'id'         => 'footer_chat3_icon',
-        //     'section_id' => 'opt-text-subsection-footer',
-        //     'type'       => 'mediaImage',
-        //     'label'      => __('Chat3 Icon'),
-        //     'attributes' => [
-        //         'name'    => 'footer_chat3_icon',
-        //         'value'   => null,
-        //     ],
-        // ])
-        ->setField([
-            'id'         => 'footer_chat3_link',
-            'section_id' => 'opt-text-subsection-footer',
-            'type'       => 'text',
-            'label'      => __('Bsky Link'),
-            'attributes' => [
-                'name'    => 'footer_chat3_link',
-                'value'   => '#',
-                'options' => [
-                    'class'        => 'form-control',
-                    'placeholder'  => __('Enter Bsky link'),
-                    'data-counter' => 255,
-                ],
-            ],
-        ]);
+        ;
 });
 
 
@@ -2688,4 +1862,7 @@ RvMedia::setUploadPathAndURLToPublic();
 
 app('events')->listen(RouteMatched::class, function () {
     ThemeSupport::registerSocialLinks();
+
+    Menu::addMenuLocation('footer-menu', 'Footer menu');
+    Menu::addMenuLocation('footer-menu-bottom', 'Footer menu bottom');
 });
